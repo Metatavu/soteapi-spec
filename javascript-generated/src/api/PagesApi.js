@@ -33,7 +33,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**
@@ -51,7 +51,7 @@
     /**
      * Finds page
      * Finds single page 
-     * @param {String} pageId page id
+     * @param {Number} pageId page id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Page} and HTTP response
      */
     this.findPageWithHttpInfo = function(pageId) {
@@ -90,7 +90,7 @@
     /**
      * Finds page
      * Finds single page 
-     * @param {String} pageId page id
+     * @param {Number} pageId page id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Page}
      */
     this.findPage = function(pageId) {
@@ -104,7 +104,7 @@
     /**
      * Returns page content in all available languages
      * Returns single page content in all available languages 
-     * @param {String} pageId page id
+     * @param {Number} pageId page id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/LocalizedValue>} and HTTP response
      */
     this.findPageContentWithHttpInfo = function(pageId) {
@@ -143,7 +143,7 @@
     /**
      * Returns page content in all available languages
      * Returns single page content in all available languages 
-     * @param {String} pageId page id
+     * @param {Number} pageId page id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/LocalizedValue>}
      */
     this.findPageContent = function(pageId) {
@@ -157,8 +157,8 @@
     /**
      * Returns a single page image
      * Returns a single page image 
-     * @param {String} pageId Page Id
-     * @param {String} imageId Page image id
+     * @param {Number} pageId Page Id
+     * @param {Number} imageId Page image id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Attachment} and HTTP response
      */
     this.findPageImageWithHttpInfo = function(pageId, imageId) {
@@ -203,8 +203,8 @@
     /**
      * Returns a single page image
      * Returns a single page image 
-     * @param {String} pageId Page Id
-     * @param {String} imageId Page image id
+     * @param {Number} pageId Page Id
+     * @param {Number} imageId Page image id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Attachment}
      */
     this.findPageImage = function(pageId, imageId) {
@@ -218,8 +218,8 @@
     /**
      * Returns an page image data
      * Returns an page image data 
-     * @param {String} pageId Page id
-     * @param {String} imageId Page image id
+     * @param {Number} pageId Page id
+     * @param {Number} imageId Page image id
      * @param {Object} opts Optional parameters
      * @param {Number} opts.size Maximum width or height of image
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link 'Blob'} and HTTP response
@@ -268,8 +268,8 @@
     /**
      * Returns an page image data
      * Returns an page image data 
-     * @param {String} pageId Page id
-     * @param {String} imageId Page image id
+     * @param {Number} pageId Page id
+     * @param {Number} imageId Page image id
      * @param {Object} opts Optional parameters
      * @param {Number} opts.size Maximum width or height of image
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link 'Blob'}
@@ -285,7 +285,7 @@
     /**
      * Returns a list of page images
      * Returns a list of page images 
-     * @param {String} pageId Page id
+     * @param {Number} pageId Page id
      * @param {Object} opts Optional parameters
      * @param {String} opts.type Filter by type
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Attachment>} and HTTP response
@@ -328,7 +328,7 @@
     /**
      * Returns a list of page images
      * Returns a list of page images 
-     * @param {String} pageId Page id
+     * @param {Number} pageId Page id
      * @param {Object} opts Optional parameters
      * @param {String} opts.type Filter by type
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Attachment>}
@@ -345,7 +345,7 @@
      * Lists pages
      * Lists pages 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.parentId Filter results by parent id
+     * @param {Number} opts.parentId Filter results by parent id
      * @param {String} opts.path Filter results by page path
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
@@ -387,7 +387,7 @@
      * Lists pages
      * Lists pages 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.parentId Filter results by parent id
+     * @param {Number} opts.parentId Filter results by parent id
      * @param {String} opts.path Filter results by page path
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results

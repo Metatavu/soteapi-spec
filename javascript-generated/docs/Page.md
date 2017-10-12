@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**id** | **Number** |  | [optional] 
 **slug** | **String** |  | [optional] 
 **title** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
-**parentId** | **String** |  | [optional] 
+**parentId** | **Number** |  | [optional] 
 
 

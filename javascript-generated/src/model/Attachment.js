@@ -36,7 +36,7 @@
   /**
    * The Attachment model module.
    * @module model/Attachment
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**
@@ -65,7 +65,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('contentType')) {
         obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
@@ -81,7 +81,7 @@
   }
 
   /**
-   * @member {String} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**

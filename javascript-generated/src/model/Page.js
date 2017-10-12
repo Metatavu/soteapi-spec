@@ -36,7 +36,7 @@
   /**
    * The Page model module.
    * @module model/Page
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**
@@ -65,7 +65,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
@@ -74,14 +74,14 @@
         obj['title'] = ApiClient.convertToType(data['title'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('parentId')) {
-        obj['parentId'] = ApiClient.convertToType(data['parentId'], 'String');
+        obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -93,7 +93,7 @@
    */
   exports.prototype['title'] = undefined;
   /**
-   * @member {String} parentId
+   * @member {Number} parentId
    */
   exports.prototype['parentId'] = undefined;
 

@@ -26,7 +26,7 @@ var SoteapiClient = require('soteapi-client');
 
 var apiInstance = new SoteapiClient.PagesApi();
 
-var pageId = "pageId_example"; // String | page id
+var pageId = 789; // Number | page id
 
 apiInstance.findPage(pageId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -40,7 +40,7 @@ apiInstance.findPage(pageId).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageId** | **String**| page id | 
+ **pageId** | **Number**| page id | 
 
 ### Return type
 
@@ -69,7 +69,7 @@ var SoteapiClient = require('soteapi-client');
 
 var apiInstance = new SoteapiClient.PagesApi();
 
-var pageId = "pageId_example"; // String | page id
+var pageId = 789; // Number | page id
 
 apiInstance.findPageContent(pageId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -83,7 +83,7 @@ apiInstance.findPageContent(pageId).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageId** | **String**| page id | 
+ **pageId** | **Number**| page id | 
 
 ### Return type
 
@@ -112,9 +112,9 @@ var SoteapiClient = require('soteapi-client');
 
 var apiInstance = new SoteapiClient.PagesApi();
 
-var pageId = "pageId_example"; // String | Page Id
+var pageId = 789; // Number | Page Id
 
-var imageId = "imageId_example"; // String | Page image id
+var imageId = 789; // Number | Page image id
 
 apiInstance.findPageImage(pageId, imageId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -128,8 +128,8 @@ apiInstance.findPageImage(pageId, imageId).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageId** | **String**| Page Id | 
- **imageId** | **String**| Page image id | 
+ **pageId** | **Number**| Page Id | 
+ **imageId** | **Number**| Page image id | 
 
 ### Return type
 
@@ -158,9 +158,9 @@ var SoteapiClient = require('soteapi-client');
 
 var apiInstance = new SoteapiClient.PagesApi();
 
-var pageId = "pageId_example"; // String | Page id
+var pageId = 789; // Number | Page id
 
-var imageId = "imageId_example"; // String | Page image id
+var imageId = 789; // Number | Page image id
 
 var opts = { 
   'size': 56 // Number | Maximum width or height of image
@@ -177,8 +177,8 @@ apiInstance.getPageImageData(pageId, imageId, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageId** | **String**| Page id | 
- **imageId** | **String**| Page image id | 
+ **pageId** | **Number**| Page id | 
+ **imageId** | **Number**| Page image id | 
  **size** | **Number**| Maximum width or height of image | [optional] 
 
 ### Return type
@@ -208,7 +208,7 @@ var SoteapiClient = require('soteapi-client');
 
 var apiInstance = new SoteapiClient.PagesApi();
 
-var pageId = "pageId_example"; // String | Page id
+var pageId = 789; // Number | Page id
 
 var opts = { 
   'type': "type_example" // String | Filter by type
@@ -225,7 +225,7 @@ apiInstance.listPageImages(pageId, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageId** | **String**| Page id | 
+ **pageId** | **Number**| Page id | 
  **type** | **String**| Filter by type | [optional] 
 
 ### Return type
@@ -256,7 +256,7 @@ var SoteapiClient = require('soteapi-client');
 var apiInstance = new SoteapiClient.PagesApi();
 
 var opts = { 
-  'parentId': "parentId_example", // String | Filter results by parent id
+  'parentId': 789, // Number | Filter results by parent id
   'path': "path_example", // String | Filter results by page path
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
@@ -273,7 +273,7 @@ apiInstance.listPages(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parentId** | **String**| Filter results by parent id | [optional] 
+ **parentId** | **Number**| Filter results by parent id | [optional] 
  **path** | **String**| Filter results by page path | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
