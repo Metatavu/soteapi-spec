@@ -4,7 +4,7 @@
   <artifactId>soteapi-spec</artifactId>
   <packaging>jar</packaging>
   <name>soteapi-spec</name>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <description>SOTE API specifications</description>
   <url>https://github.com/Metatavu/soteapi-spec</url>
 
@@ -33,7 +33,7 @@
     <developerConnection>scm:git:git@github.com:Metatavu/soteapi-spec.git</developerConnection>
     <url>git@github.com:Metatavu/soteapi-spec.git</url>
     <connection>scm:git:git@github.com:Metatavu/soteapi-spec.git</connection>
-    <tag>HEAD</tag>
+    <tag>0.0.1</tag>
   </scm>
 
   <organization>
