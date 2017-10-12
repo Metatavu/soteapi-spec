@@ -33,7 +33,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**
