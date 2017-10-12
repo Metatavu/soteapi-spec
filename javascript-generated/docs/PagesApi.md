@@ -100,7 +100,7 @@ No authorization required
 
 <a name="findPageImage"></a>
 # **findPageImage**
-> Attachment findPageImage(pageId, imageId)
+> PageImage findPageImage(pageId, imageId)
 
 Returns a single page image
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Attachment**](Attachment.md)
+[**PageImage**](PageImage.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ No authorization required
 
 <a name="listPageImages"></a>
 # **listPageImages**
-> [Attachment] listPageImages(pageId, opts)
+> [PageImage] listPageImages(pageId, opts)
 
 Returns a list of page images
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Attachment]**](Attachment.md)
+[**[PageImage]**](PageImage.md)
 
 ### Authorization
 

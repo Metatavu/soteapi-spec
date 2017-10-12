@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Attachment', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'model/Page', 'api/PagesApi'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'model/Page', 'model/PageImage', 'api/PagesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Page'), require('./api/PagesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Page'), require('./model/PageImage'), require('./api/PagesApi'));
   }
-}(function(ApiClient, Attachment, BadRequest, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, Page, PagesApi) {
+}(function(ApiClient, BadRequest, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, Page, PageImage, PagesApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.3
+   * @version 0.0.4
    */
   var exports = {
     /**
@@ -61,11 +61,6 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
-    /**
-     * The Attachment model constructor.
-     * @property {module:model/Attachment}
-     */
-    Attachment: Attachment,
     /**
      * The BadRequest model constructor.
      * @property {module:model/BadRequest}
@@ -101,6 +96,11 @@
      * @property {module:model/Page}
      */
     Page: Page,
+    /**
+     * The PageImage model constructor.
+     * @property {module:model/PageImage}
+     */
+    PageImage: PageImage,
     /**
      * The PagesApi service constructor.
      * @property {module:api/PagesApi}

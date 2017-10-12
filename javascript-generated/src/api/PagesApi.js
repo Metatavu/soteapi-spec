@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Attachment', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/Page'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/Page', 'model/PageImage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Attachment'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/LocalizedValue'), require('../model/Page'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/LocalizedValue'), require('../model/Page'), require('../model/PageImage'));
   } else {
     // Browser globals (root is window)
     if (!root.SoteapiClient) {
       root.SoteapiClient = {};
     }
-    root.SoteapiClient.PagesApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.Attachment, root.SoteapiClient.BadRequest, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError, root.SoteapiClient.LocalizedValue, root.SoteapiClient.Page);
+    root.SoteapiClient.PagesApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.BadRequest, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError, root.SoteapiClient.LocalizedValue, root.SoteapiClient.Page, root.SoteapiClient.PageImage);
   }
-}(this, function(ApiClient, Attachment, BadRequest, Forbidden, InternalServerError, LocalizedValue, Page) {
+}(this, function(ApiClient, BadRequest, Forbidden, InternalServerError, LocalizedValue, Page, PageImage) {
   'use strict';
 
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**
@@ -159,7 +159,7 @@
      * Returns a single page image 
      * @param {Number} pageId Page Id
      * @param {Number} imageId Page image id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Attachment} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PageImage} and HTTP response
      */
     this.findPageImageWithHttpInfo = function(pageId, imageId) {
       var postBody = null;
@@ -191,7 +191,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Attachment;
+      var returnType = PageImage;
 
       return this.apiClient.callApi(
         '/pages/{pageId}/images/{imageId}', 'GET',
@@ -205,7 +205,7 @@
      * Returns a single page image 
      * @param {Number} pageId Page Id
      * @param {Number} imageId Page image id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Attachment}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PageImage}
      */
     this.findPageImage = function(pageId, imageId) {
       return this.findPageImageWithHttpInfo(pageId, imageId)
@@ -288,7 +288,7 @@
      * @param {Number} pageId Page id
      * @param {Object} opts Optional parameters
      * @param {String} opts.type Filter by type
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Attachment>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/PageImage>} and HTTP response
      */
     this.listPageImagesWithHttpInfo = function(pageId, opts) {
       opts = opts || {};
@@ -316,7 +316,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Attachment];
+      var returnType = [PageImage];
 
       return this.apiClient.callApi(
         '/pages/{pageId}/images', 'GET',
@@ -331,7 +331,7 @@
      * @param {Number} pageId Page id
      * @param {Object} opts Optional parameters
      * @param {String} opts.type Filter by type
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Attachment>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PageImage>}
      */
     this.listPageImages = function(pageId, opts) {
       return this.listPageImagesWithHttpInfo(pageId, opts)
