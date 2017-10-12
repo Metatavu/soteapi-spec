@@ -1,0 +1,436 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "SOTE API",
+    "version" : "0.0.1",
+    "title" : "SOTE API"
+  },
+  "basePath" : "/v1",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json;charset=utf-8" ],
+  "produces" : [ "application/json;charset=utf-8" ],
+  "paths" : {
+    "/pages" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Lists pages",
+        "description" : "Lists pages\n",
+        "operationId" : "listPages",
+        "parameters" : [ {
+          "name" : "parentId",
+          "in" : "query",
+          "description" : "Filter results by parent id",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "path",
+          "in" : "query",
+          "description" : "Filter results by page path",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of pages",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Page"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageId}" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Finds page",
+        "description" : "Finds single page\n",
+        "operationId" : "findPage",
+        "parameters" : [ {
+          "name" : "pageId",
+          "in" : "path",
+          "description" : "page id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single page",
+            "schema" : {
+              "$ref" : "#/definitions/Page"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageId}/content" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Returns page content in all available languages",
+        "description" : "Returns single page content in all available languages\n",
+        "operationId" : "findPageContent",
+        "parameters" : [ {
+          "name" : "pageId",
+          "in" : "path",
+          "description" : "page id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns single page content in all available languages",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/LocalizedValue"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageId}/images" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Returns a list of page images",
+        "description" : "Returns a list of page images\n",
+        "operationId" : "listPageImages",
+        "parameters" : [ {
+          "name" : "pageId",
+          "in" : "path",
+          "description" : "Page id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "Filter by type",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns list of page images",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Attachment"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageId}/images/{imageId}" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Returns a single page image",
+        "description" : "Returns a single page image\n",
+        "operationId" : "findPageImage",
+        "parameters" : [ {
+          "name" : "pageId",
+          "in" : "path",
+          "description" : "Page Id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "imageId",
+          "in" : "path",
+          "description" : "Page image id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns an page image",
+            "schema" : {
+              "$ref" : "#/definitions/Attachment"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/pages/{pageId}/images/{imageId}/data" : {
+      "get" : {
+        "tags" : [ "Pages" ],
+        "summary" : "Returns an page image data",
+        "description" : "Returns an page image data\n",
+        "operationId" : "getPageImageData",
+        "produces" : [ "application/octet-stream" ],
+        "parameters" : [ {
+          "name" : "pageId",
+          "in" : "path",
+          "description" : "Page id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "imageId",
+          "in" : "path",
+          "description" : "Page image id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "Maximum width or height of image",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns an page image data",
+            "schema" : {
+              "type" : "string",
+              "format" : "binary"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Attachment" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "contentType" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Page" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "slug" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "parentId" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      }
+    },
+    "LocalizedValue" : {
+      "type" : "object",
+      "properties" : {
+        "language" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InternalServerError" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Forbidden" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "BadRequest" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "NotImplemented" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "NotFound" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
