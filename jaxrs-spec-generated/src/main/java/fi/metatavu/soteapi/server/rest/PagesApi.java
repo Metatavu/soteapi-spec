@@ -1,11 +1,11 @@
 package fi.metatavu.soteapi.server.rest;
 
-import fi.metatavu.soteapi.server.rest.model.Attachment;
 import fi.metatavu.soteapi.server.rest.model.BadRequest;
 import fi.metatavu.soteapi.server.rest.model.Forbidden;
 import fi.metatavu.soteapi.server.rest.model.InternalServerError;
 import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
 import fi.metatavu.soteapi.server.rest.model.Page;
+import fi.metatavu.soteapi.server.rest.model.PageImage;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -23,7 +23,7 @@ import java.lang.Exception;
 @Api(description = "the pages API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-10-12T23:22:33.019+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-10-13T00:09:13.287+03:00")
 
 
 public interface PagesApi  {
@@ -56,9 +56,9 @@ public interface PagesApi  {
     @Path("/{pageId}/images/{imageId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns a single page image", notes = "Returns a single page image ", response = Attachment.class, tags={ "Pages",  })
+    @ApiOperation(value = "Returns a single page image", notes = "Returns a single page image ", response = PageImage.class, tags={ "Pages",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns an page image", response = Attachment.class),
+        @ApiResponse(code = 200, message = "Returns an page image", response = PageImage.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
@@ -80,9 +80,9 @@ public interface PagesApi  {
     @Path("/{pageId}/images")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns a list of page images", notes = "Returns a list of page images ", response = Attachment.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Returns a list of page images", notes = "Returns a list of page images ", response = PageImage.class, responseContainer = "List", tags={ "Pages",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns list of page images", response = Attachment.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "Returns list of page images", response = PageImage.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })

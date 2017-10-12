@@ -8,16 +8,17 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Attachment   {
+public class PageImage   {
   
   private @Valid Long id = null;
+  private @Valid String name = null;
   private @Valid String contentType = null;
   private @Valid Long size = null;
   private @Valid String type = null;
 
   /**
    **/
-  public Attachment id(Long id) {
+  public PageImage id(Long id) {
     this.id = id;
     return this;
   }
@@ -33,7 +34,23 @@ public class Attachment   {
 
   /**
    **/
-  public Attachment contentType(String contentType) {
+  public PageImage name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   **/
+  public PageImage contentType(String contentType) {
     this.contentType = contentType;
     return this;
   }
@@ -49,7 +66,7 @@ public class Attachment   {
 
   /**
    **/
-  public Attachment size(Long size) {
+  public PageImage size(Long size) {
     this.size = size;
     return this;
   }
@@ -65,7 +82,7 @@ public class Attachment   {
 
   /**
    **/
-  public Attachment type(String type) {
+  public PageImage type(String type) {
     this.type = type;
     return this;
   }
@@ -88,24 +105,26 @@ public class Attachment   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Attachment attachment = (Attachment) o;
-    return Objects.equals(id, attachment.id) &&
-        Objects.equals(contentType, attachment.contentType) &&
-        Objects.equals(size, attachment.size) &&
-        Objects.equals(type, attachment.type);
+    PageImage pageImage = (PageImage) o;
+    return Objects.equals(id, pageImage.id) &&
+        Objects.equals(name, pageImage.name) &&
+        Objects.equals(contentType, pageImage.contentType) &&
+        Objects.equals(size, pageImage.size) &&
+        Objects.equals(type, pageImage.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, contentType, size, type);
+    return Objects.hash(id, name, contentType, size, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Attachment {\n");
+    sb.append("class PageImage {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

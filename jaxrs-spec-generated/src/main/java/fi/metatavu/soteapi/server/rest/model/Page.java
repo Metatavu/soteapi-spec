@@ -16,7 +16,6 @@ public class Page   {
   private @Valid Long id = null;
   private @Valid String slug = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
-  private @Valid Long parentId = null;
 
   /**
    **/
@@ -66,22 +65,6 @@ public class Page   {
     this.title = title;
   }
 
-  /**
-   **/
-  public Page parentId(Long parentId) {
-    this.parentId = parentId;
-    return this;
-  }
-
-  
-  @ApiModelProperty(value = "")
-  public Long getParentId() {
-    return parentId;
-  }
-  public void setParentId(Long parentId) {
-    this.parentId = parentId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,13 +77,12 @@ public class Page   {
     Page page = (Page) o;
     return Objects.equals(id, page.id) &&
         Objects.equals(slug, page.slug) &&
-        Objects.equals(title, page.title) &&
-        Objects.equals(parentId, page.parentId);
+        Objects.equals(title, page.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, title, parentId);
+    return Objects.hash(id, slug, title);
   }
 
   @Override
@@ -111,7 +93,6 @@ public class Page   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

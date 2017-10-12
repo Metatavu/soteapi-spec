@@ -188,7 +188,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/Attachment"
+                "$ref" : "#/definitions/PageImage"
               }
             }
           },
@@ -238,7 +238,7 @@
           "200" : {
             "description" : "Returns an page image",
             "schema" : {
-              "$ref" : "#/definitions/Attachment"
+              "$ref" : "#/definitions/PageImage"
             }
           },
           "400" : {
@@ -322,24 +322,6 @@
     }
   },
   "definitions" : {
-    "Attachment" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "contentType" : {
-          "type" : "string"
-        },
-        "size" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "type" : {
-          "type" : "string"
-        }
-      }
-    },
     "Page" : {
       "properties" : {
         "id" : {
@@ -354,10 +336,27 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
-        },
-        "parentId" : {
+        }
+      }
+    },
+    "PageImage" : {
+      "properties" : {
+        "id" : {
           "type" : "integer",
           "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "contentType" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "type" : {
+          "type" : "string"
         }
       }
     },
