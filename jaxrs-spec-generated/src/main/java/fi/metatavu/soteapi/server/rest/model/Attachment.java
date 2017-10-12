@@ -1,6 +1,5 @@
 package fi.metatavu.soteapi.server.rest.model;
 
-import java.util.UUID;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -11,24 +10,24 @@ import java.util.Objects;
 
 public class Attachment   {
   
-  private @Valid UUID id = null;
+  private @Valid Long id = null;
   private @Valid String contentType = null;
   private @Valid Long size = null;
   private @Valid String type = null;
 
   /**
    **/
-  public Attachment id(UUID id) {
+  public Attachment id(Long id) {
     this.id = id;
     return this;
   }
 
   
   @ApiModelProperty(value = "")
-  public UUID getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(UUID id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

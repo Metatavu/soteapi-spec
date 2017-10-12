@@ -3,7 +3,6 @@ package fi.metatavu.soteapi.server.rest.model;
 import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -14,24 +13,24 @@ import java.util.Objects;
 
 public class Page   {
   
-  private @Valid UUID id = null;
+  private @Valid Long id = null;
   private @Valid String slug = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
-  private @Valid UUID parentId = null;
+  private @Valid Long parentId = null;
 
   /**
    **/
-  public Page id(UUID id) {
+  public Page id(Long id) {
     this.id = id;
     return this;
   }
 
   
   @ApiModelProperty(value = "")
-  public UUID getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(UUID id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -69,17 +68,17 @@ public class Page   {
 
   /**
    **/
-  public Page parentId(UUID parentId) {
+  public Page parentId(Long parentId) {
     this.parentId = parentId;
     return this;
   }
 
   
   @ApiModelProperty(value = "")
-  public UUID getParentId() {
+  public Long getParentId() {
     return parentId;
   }
-  public void setParentId(UUID parentId) {
+  public void setParentId(Long parentId) {
     this.parentId = parentId;
   }
 
