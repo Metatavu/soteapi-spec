@@ -11,12 +11,12 @@ consumes:
 produces:
   - application/json;charset=utf-8
 paths:
-  /pages:
+  /contents:
     get:
-      operationId: listPages
-      summary: Lists pages
+      operationId: listContents
+      summary: Lists contents
       description: |
-        Lists pages
+        Lists contents
       parameters:
         - name: parentId
           in: query
@@ -26,7 +26,7 @@ paths:
           format: int64
         - name: path
           in: query
-          description: Filter results by page path
+          description: Filter results by content path
           required: false
           type: string
         - name: firstResult
@@ -42,14 +42,14 @@ paths:
           type: integer
           format: int64
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns a list of pages
+          description: Returns a list of contents
           schema:
             type: array
             items:
-              $ref: '#/definitions/Page'
+              $ref: '#/definitions/Content'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -62,26 +62,26 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /pages/{pageId}:
+  /contents/{contentId}:
     get:
-      operationId: findPage
-      summary: Finds page
+      operationId: findContent
+      summary: Finds content
       description: |
-        Finds single page
+        Finds single content
       parameters:
-        - name: pageId
+        - name: contentId
           in: path
-          description: page id
+          description: content id
           required: true
           type: integer
           format: int64
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns a single page
+          description: Returns a single content
           schema:
-            $ref: '#/definitions/Page'
+            $ref: '#/definitions/Content'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -94,24 +94,24 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /pages/{pageId}/content:
+  /contents/{contentId}/content:
     get:
-      operationId: findPageContent
-      summary: Returns page content in all available languages
+      operationId: findContentContent
+      summary: Returns content content in all available languages
       description: |
-        Returns single page content in all available languages
+        Returns single content content in all available languages
       parameters:
-        - name: pageId
+        - name: contentId
           in: path
-          description: page id
+          description: content id
           required: true
           type: integer
           format: int64
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns single page content in all available languages
+          description: Returns single content content in all available languages
           schema:
             type: array
             items:
@@ -128,16 +128,16 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /pages/{pageId}/images:
+  /contents/{contentId}/images:
     get:
-      operationId: listPageImages
-      summary: Returns a list of page images
+      operationId: listContentImages
+      summary: Returns a list of content images
       description: |
-        Returns a list of page images
+        Returns a list of content images
       parameters:
-        - name: pageId
+        - name: contentId
           in: path
-          description: Page id
+          description: Content id
           required: true
           type: integer
           format: int64
@@ -146,14 +146,14 @@ paths:
           description: Filter by type
           type: string
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns list of page images
+          description: Returns list of content images
           schema:
             type: array
             items:
-              $ref: '#/definitions/PageImage'
+              $ref: '#/definitions/ContentImage'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -166,32 +166,32 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /pages/{pageId}/images/{imageId}:
+  /contents/{contentId}/images/{imageId}:
     get:
-      operationId: findPageImage
-      summary: Returns a single page image
+      operationId: findContentImage
+      summary: Returns a single content image
       description: |
-        Returns a single page image
+        Returns a single content image
       parameters:
-        - name: pageId
+        - name: contentId
           in: path
-          description: Page Id
+          description: Content Id
           required: true
           type: integer
           format: int64
         - name: imageId
           in: path
-          description: Page image id
+          description: Content image id
           required: true
           type: integer
           format: int64
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns an page image
+          description: Returns an content image
           schema:
-            $ref: '#/definitions/PageImage'
+            $ref: '#/definitions/ContentImage'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -204,24 +204,24 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /pages/{pageId}/images/{imageId}/data:
+  /contents/{contentId}/images/{imageId}/data:
     get:
       produces:
         - application/octet-stream
-      operationId: getPageImageData
-      summary: Returns an page image data
+      operationId: getContentImageData
+      summary: Returns an content image data
       description: |
-        Returns an page image data
+        Returns an content image data
       parameters:
-        - name: pageId
+        - name: contentId
           in: path
-          description: Page id
+          description: Content id
           required: true
           type: integer
           format: int64
         - name: imageId
           in: path
-          description: Page image id
+          description: Content image id
           required: true
           type: integer
           format: int64
@@ -232,10 +232,10 @@ paths:
           type: integer
           format: int32
       tags:
-        - Pages
+        - Contents
       responses:
         200:
-          description: Returns an page image data
+          description: Returns an content image data
           schema:
             type: string
             format: binary
@@ -253,18 +253,27 @@ paths:
             $ref: '#/definitions/InternalServerError'
 
 definitions:
-  Page:
+  Content:
     properties:
       id:
         type: integer
         format: int64
+      parentId:
+        type: integer
+        format: int64
       slug:
         type: string
+      type:
+        type: string
+        description: Content type
+        enum:
+          - PAGE  
+          - NEWS
       title:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
-  PageImage:
+  ContentImage:
     properties:
       id:
         type: integer
