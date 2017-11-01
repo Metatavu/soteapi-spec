@@ -96,7 +96,7 @@ paths:
             $ref: '#/definitions/InternalServerError'
   /contents/{contentId}/content:
     get:
-      operationId: findContentContent
+      operationId: findContentData
       summary: Returns content content in all available languages
       description: |
         Returns single content content in all available languages
