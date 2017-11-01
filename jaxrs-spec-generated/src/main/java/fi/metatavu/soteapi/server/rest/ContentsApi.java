@@ -23,7 +23,7 @@ import java.lang.Exception;
 @Api(description = "the contents API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-01T16:10:39.857+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-01T16:31:40.992+02:00")
 
 
 public interface ContentsApi  {
@@ -50,7 +50,7 @@ public interface ContentsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findContentContent(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
+    public Response findContentData(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
 
     @GET
     @Path("/{contentId}/images/{imageId}")

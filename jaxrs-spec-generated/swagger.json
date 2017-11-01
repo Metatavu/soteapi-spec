@@ -122,7 +122,7 @@
         "tags" : [ "Contents" ],
         "summary" : "Returns content content in all available languages",
         "description" : "Returns single content content in all available languages\n",
-        "operationId" : "findContentContent",
+        "operationId" : "findContentData",
         "parameters" : [ {
           "name" : "contentId",
           "in" : "path",
