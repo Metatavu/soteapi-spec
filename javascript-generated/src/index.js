@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'model/Page', 'model/PageImage', 'api/PagesApi'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/ContentsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Page'), require('./model/PageImage'), require('./api/PagesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Content'), require('./model/ContentImage'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/ContentsApi'));
   }
-}(function(ApiClient, BadRequest, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, Page, PageImage, PagesApi) {
+}(function(ApiClient, BadRequest, Content, ContentImage, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, ContentsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.4
+   * @version 0.0.5
    */
   var exports = {
     /**
@@ -66,6 +66,16 @@
      * @property {module:model/BadRequest}
      */
     BadRequest: BadRequest,
+    /**
+     * The Content model constructor.
+     * @property {module:model/Content}
+     */
+    Content: Content,
+    /**
+     * The ContentImage model constructor.
+     * @property {module:model/ContentImage}
+     */
+    ContentImage: ContentImage,
     /**
      * The Forbidden model constructor.
      * @property {module:model/Forbidden}
@@ -92,20 +102,10 @@
      */
     NotImplemented: NotImplemented,
     /**
-     * The Page model constructor.
-     * @property {module:model/Page}
+     * The ContentsApi service constructor.
+     * @property {module:api/ContentsApi}
      */
-    Page: Page,
-    /**
-     * The PageImage model constructor.
-     * @property {module:model/PageImage}
-     */
-    PageImage: PageImage,
-    /**
-     * The PagesApi service constructor.
-     * @property {module:api/PagesApi}
-     */
-    PagesApi: PagesApi
+    ContentsApi: ContentsApi
   };
 
   return exports;
