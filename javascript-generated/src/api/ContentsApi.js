@@ -33,7 +33,7 @@
   /**
    * Contents service.
    * @module api/ContentsApi
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -107,12 +107,12 @@
      * @param {Number} contentId content id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/LocalizedValue>} and HTTP response
      */
-    this.findContentContentWithHttpInfo = function(contentId) {
+    this.findContentDataWithHttpInfo = function(contentId) {
       var postBody = null;
 
       // verify the required parameter 'contentId' is set
       if (contentId === undefined || contentId === null) {
-        throw new Error("Missing the required parameter 'contentId' when calling findContentContent");
+        throw new Error("Missing the required parameter 'contentId' when calling findContentData");
       }
 
 
@@ -146,8 +146,8 @@
      * @param {Number} contentId content id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/LocalizedValue>}
      */
-    this.findContentContent = function(contentId) {
-      return this.findContentContentWithHttpInfo(contentId)
+    this.findContentData = function(contentId) {
+      return this.findContentDataWithHttpInfo(contentId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

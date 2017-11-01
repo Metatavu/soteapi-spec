@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findContent**](ContentsApi.md#findContent) | **GET** /contents/{contentId} | Finds content
-[**findContentContent**](ContentsApi.md#findContentContent) | **GET** /contents/{contentId}/content | Returns content content in all available languages
+[**findContentData**](ContentsApi.md#findContentData) | **GET** /contents/{contentId}/content | Returns content content in all available languages
 [**findContentImage**](ContentsApi.md#findContentImage) | **GET** /contents/{contentId}/images/{imageId} | Returns a single content image
 [**getContentImageData**](ContentsApi.md#getContentImageData) | **GET** /contents/{contentId}/images/{imageId}/data | Returns an content image data
 [**listContentImages**](ContentsApi.md#listContentImages) | **GET** /contents/{contentId}/images | Returns a list of content images
@@ -55,9 +55,9 @@ No authorization required
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="findContentContent"></a>
-# **findContentContent**
-> [LocalizedValue] findContentContent(contentId)
+<a name="findContentData"></a>
+# **findContentData**
+> [LocalizedValue] findContentData(contentId)
 
 Returns content content in all available languages
 
@@ -71,7 +71,7 @@ var apiInstance = new SoteapiClient.ContentsApi();
 
 var contentId = 789; // Number | content id
 
-apiInstance.findContentContent(contentId).then(function(data) {
+apiInstance.findContentData(contentId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
