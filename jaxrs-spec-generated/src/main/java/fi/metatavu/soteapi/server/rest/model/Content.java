@@ -11,15 +11,48 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Page   {
+public class Content   {
   
   private @Valid Long id = null;
+  private @Valid Long parentId = null;
   private @Valid String slug = null;
+
+public enum TypeEnum {
+
+    PAGE(String.valueOf("PAGE")), NEWS(String.valueOf("NEWS"));
+
+
+    private String value;
+
+    TypeEnum (String v) {
+        value = v;
+    }
+
+    public String value() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String v) {
+        for (TypeEnum b : TypeEnum.values()) {
+            if (String.valueOf(b.value).equals(v)) {
+                return b;
+            }
+        }
+        return null;
+    }
+}
+
+  private @Valid TypeEnum type = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
 
   /**
    **/
-  public Page id(Long id) {
+  public Content id(Long id) {
     this.id = id;
     return this;
   }
@@ -35,7 +68,23 @@ public class Page   {
 
   /**
    **/
-  public Page slug(String slug) {
+  public Content parentId(Long parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Long getParentId() {
+    return parentId;
+  }
+  public void setParentId(Long parentId) {
+    this.parentId = parentId;
+  }
+
+  /**
+   **/
+  public Content slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -50,8 +99,25 @@ public class Page   {
   }
 
   /**
+   * Content type
    **/
-  public Page title(List<LocalizedValue> title) {
+  public Content type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Content type")
+  public TypeEnum getType() {
+    return type;
+  }
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  /**
+   **/
+  public Content title(List<LocalizedValue> title) {
     this.title = title;
     return this;
   }
@@ -74,24 +140,28 @@ public class Page   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Page page = (Page) o;
-    return Objects.equals(id, page.id) &&
-        Objects.equals(slug, page.slug) &&
-        Objects.equals(title, page.title);
+    Content content = (Content) o;
+    return Objects.equals(id, content.id) &&
+        Objects.equals(parentId, content.parentId) &&
+        Objects.equals(slug, content.slug) &&
+        Objects.equals(type, content.type) &&
+        Objects.equals(title, content.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, title);
+    return Objects.hash(id, parentId, slug, type, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Page {\n");
+    sb.append("class Content {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();

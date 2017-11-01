@@ -1,11 +1,11 @@
 package fi.metatavu.soteapi.server.rest;
 
 import fi.metatavu.soteapi.server.rest.model.BadRequest;
+import fi.metatavu.soteapi.server.rest.model.Content;
+import fi.metatavu.soteapi.server.rest.model.ContentImage;
 import fi.metatavu.soteapi.server.rest.model.Forbidden;
 import fi.metatavu.soteapi.server.rest.model.InternalServerError;
 import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
-import fi.metatavu.soteapi.server.rest.model.Page;
-import fi.metatavu.soteapi.server.rest.model.PageImage;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -18,85 +18,85 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import java.lang.Exception;
 
-@Path("/pages")
+@Path("/contents")
 
-@Api(description = "the pages API")
+@Api(description = "the contents API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-10-13T00:09:13.287+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-01T16:10:39.857+02:00")
 
 
-public interface PagesApi  {
+public interface ContentsApi  {
 
     @GET
-    @Path("/{pageId}")
+    @Path("/{contentId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Finds page", notes = "Finds single page ", response = Page.class, tags={ "Pages",  })
+    @ApiOperation(value = "Finds content", notes = "Finds single content ", response = Content.class, tags={ "Contents",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a single page", response = Page.class),
+        @ApiResponse(code = 200, message = "Returns a single content", response = Content.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findPage(@PathParam("pageId") @ApiParam("page id") Long pageId) throws Exception;
+    public Response findContent(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
 
     @GET
-    @Path("/{pageId}/content")
+    @Path("/{contentId}/content")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns page content in all available languages", notes = "Returns single page content in all available languages ", response = LocalizedValue.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Returns content content in all available languages", notes = "Returns single content content in all available languages ", response = LocalizedValue.class, responseContainer = "List", tags={ "Contents",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns single page content in all available languages", response = LocalizedValue.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "Returns single content content in all available languages", response = LocalizedValue.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findPageContent(@PathParam("pageId") @ApiParam("page id") Long pageId) throws Exception;
+    public Response findContentContent(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
 
     @GET
-    @Path("/{pageId}/images/{imageId}")
+    @Path("/{contentId}/images/{imageId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns a single page image", notes = "Returns a single page image ", response = PageImage.class, tags={ "Pages",  })
+    @ApiOperation(value = "Returns a single content image", notes = "Returns a single content image ", response = ContentImage.class, tags={ "Contents",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns an page image", response = PageImage.class),
+        @ApiResponse(code = 200, message = "Returns an content image", response = ContentImage.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findPageImage(@PathParam("pageId") @ApiParam("Page Id") Long pageId,@PathParam("imageId") @ApiParam("Page image id") Long imageId) throws Exception;
+    public Response findContentImage(@PathParam("contentId") @ApiParam("Content Id") Long contentId,@PathParam("imageId") @ApiParam("Content image id") Long imageId) throws Exception;
 
     @GET
-    @Path("/{pageId}/images/{imageId}/data")
+    @Path("/{contentId}/images/{imageId}/data")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an page image data", notes = "Returns an page image data ", response = byte[].class, tags={ "Pages",  })
+    @ApiOperation(value = "Returns an content image data", notes = "Returns an content image data ", response = byte[].class, tags={ "Contents",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns an page image data", response = byte[].class),
+        @ApiResponse(code = 200, message = "Returns an content image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response getPageImageData(@PathParam("pageId") @ApiParam("Page id") Long pageId,@PathParam("imageId") @ApiParam("Page image id") Long imageId,@QueryParam("size")   @ApiParam("Maximum width or height of image")  Integer size) throws Exception;
+    public Response getContentImageData(@PathParam("contentId") @ApiParam("Content id") Long contentId,@PathParam("imageId") @ApiParam("Content image id") Long imageId,@QueryParam("size")   @ApiParam("Maximum width or height of image")  Integer size) throws Exception;
 
     @GET
-    @Path("/{pageId}/images")
+    @Path("/{contentId}/images")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns a list of page images", notes = "Returns a list of page images ", response = PageImage.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Returns a list of content images", notes = "Returns a list of content images ", response = ContentImage.class, responseContainer = "List", tags={ "Contents",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns list of page images", response = PageImage.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "Returns list of content images", response = ContentImage.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listPageImages(@PathParam("pageId") @ApiParam("Page id") Long pageId,@QueryParam("type")   @ApiParam("Filter by type")  String type) throws Exception;
+    public Response listContentImages(@PathParam("contentId") @ApiParam("Content id") Long contentId,@QueryParam("type")   @ApiParam("Filter by type")  String type) throws Exception;
 
     @GET
     
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Lists pages", notes = "Lists pages ", response = Page.class, responseContainer = "List", tags={ "Pages" })
+    @ApiOperation(value = "Lists contents", notes = "Lists contents ", response = Content.class, responseContainer = "List", tags={ "Contents" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a list of pages", response = Page.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "Returns a list of contents", response = Content.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listPages(@QueryParam("parentId")   @ApiParam("Filter results by parent id")  Long parentId,@QueryParam("path")   @ApiParam("Filter results by page path")  String path,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listContents(@QueryParam("parentId")   @ApiParam("Filter results by parent id")  Long parentId,@QueryParam("path")   @ApiParam("Filter results by content path")  String path,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 }

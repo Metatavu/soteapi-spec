@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class PageImage   {
+public class ContentImage   {
   
   private @Valid Long id = null;
   private @Valid String name = null;
@@ -18,7 +18,7 @@ public class PageImage   {
 
   /**
    **/
-  public PageImage id(Long id) {
+  public ContentImage id(Long id) {
     this.id = id;
     return this;
   }
@@ -34,7 +34,7 @@ public class PageImage   {
 
   /**
    **/
-  public PageImage name(String name) {
+  public ContentImage name(String name) {
     this.name = name;
     return this;
   }
@@ -50,7 +50,7 @@ public class PageImage   {
 
   /**
    **/
-  public PageImage contentType(String contentType) {
+  public ContentImage contentType(String contentType) {
     this.contentType = contentType;
     return this;
   }
@@ -66,7 +66,7 @@ public class PageImage   {
 
   /**
    **/
-  public PageImage size(Long size) {
+  public ContentImage size(Long size) {
     this.size = size;
     return this;
   }
@@ -82,7 +82,7 @@ public class PageImage   {
 
   /**
    **/
-  public PageImage type(String type) {
+  public ContentImage type(String type) {
     this.type = type;
     return this;
   }
@@ -105,12 +105,12 @@ public class PageImage   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PageImage pageImage = (PageImage) o;
-    return Objects.equals(id, pageImage.id) &&
-        Objects.equals(name, pageImage.name) &&
-        Objects.equals(contentType, pageImage.contentType) &&
-        Objects.equals(size, pageImage.size) &&
-        Objects.equals(type, pageImage.type);
+    ContentImage contentImage = (ContentImage) o;
+    return Objects.equals(id, contentImage.id) &&
+        Objects.equals(name, contentImage.name) &&
+        Objects.equals(contentType, contentImage.contentType) &&
+        Objects.equals(size, contentImage.size) &&
+        Objects.equals(type, contentImage.type);
   }
 
   @Override
@@ -121,7 +121,7 @@ public class PageImage   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PageImage {\n");
+    sb.append("class ContentImage {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
