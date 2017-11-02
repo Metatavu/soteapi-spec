@@ -23,7 +23,7 @@ import java.lang.Exception;
 @Api(description = "the contents API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-02T11:52:31.253+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-02T13:10:17.727+02:00")
 
 
 public interface ContentsApi  {
@@ -98,5 +98,5 @@ public interface ContentsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listContents(@QueryParam("parentId")   @ApiParam("Filter results by parent id")  Long parentId,@QueryParam("type")   @ApiParam("Filter results by content type")  String type,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listContents(@QueryParam("parentId")   @ApiParam("Filter results by parent id")  String parentId,@QueryParam("type")   @ApiParam("Filter results by content type")  String type,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 }
