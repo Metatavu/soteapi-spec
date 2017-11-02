@@ -257,7 +257,7 @@ var apiInstance = new SoteapiClient.ContentsApi();
 
 var opts = { 
   'parentId': "parentId_example", // String | Filter results by parent id
-  'type': "type_example", // String | Filter results by content type
+  'type': ["type_example"], // [String] | Filter results by content type
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
@@ -274,7 +274,7 @@ apiInstance.listContents(opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parentId** | **String**| Filter results by parent id | [optional] 
- **type** | **String**| Filter results by content type | [optional] 
+ **type** | [**[String]**](String.md)| Filter results by content type | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 
