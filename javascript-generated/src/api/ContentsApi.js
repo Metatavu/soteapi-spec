@@ -33,7 +33,7 @@
   /**
    * Contents service.
    * @module api/ContentsApi
-   * @version 0.0.7
+   * @version 0.0.8
    */
 
   /**
@@ -345,7 +345,7 @@
      * Lists contents
      * Lists contents 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentId Filter results by parent id
+     * @param {String} opts.parentId Filter results by parent id
      * @param {module:model/String} opts.type Filter results by content type
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
@@ -387,7 +387,7 @@
      * Lists contents
      * Lists contents 
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentId Filter results by parent id
+     * @param {String} opts.parentId Filter results by parent id
      * @param {module:model/String} opts.type Filter results by content type
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
