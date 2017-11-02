@@ -24,11 +24,12 @@
           "type" : "integer",
           "format" : "int64"
         }, {
-          "name" : "path",
+          "name" : "type",
           "in" : "query",
-          "description" : "Filter results by content path",
+          "description" : "Filter results by content type",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "PAGE", "NEWS" ]
         }, {
           "name" : "firstResult",
           "in" : "query",
