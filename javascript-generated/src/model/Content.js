@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.8
+   * @version 0.0.9
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -74,6 +75,9 @@
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
+      if (data.hasOwnProperty('category')) {
+        obj['category'] = ApiClient.convertToType(data['category'], 'String');
+      }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
@@ -96,6 +100,11 @@
    * @member {String} slug
    */
   exports.prototype['slug'] = undefined;
+  /**
+   * Category slug
+   * @member {String} category
+   */
+  exports.prototype['category'] = undefined;
   /**
    * Content type
    * @member {module:model/Content.TypeEnum} type
