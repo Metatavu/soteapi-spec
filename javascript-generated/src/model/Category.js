@@ -25,7 +25,7 @@
     if (!root.SoteapiClient) {
       root.SoteapiClient = {};
     }
-    root.SoteapiClient.Content = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.LocalizedValue);
+    root.SoteapiClient.Category = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.LocalizedValue);
   }
 }(this, function(ApiClient, LocalizedValue) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The Content model module.
-   * @module model/Content
+   * The Category model module.
+   * @module model/Category
    * @version 0.0.13
    */
 
   /**
-   * Constructs a new <code>Content</code>.
-   * @alias module:model/Content
+   * Constructs a new <code>Category</code>.
+   * @alias module:model/Category
    * @class
    */
   var exports = function() {
@@ -50,18 +50,14 @@
 
 
 
-
-
-
-
   };
 
   /**
-   * Constructs a <code>Content</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Category</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Content} obj Optional instance to populate.
-   * @return {module:model/Content} The populated <code>Content</code> instance.
+   * @param {module:model/Category} obj Optional instance to populate.
+   * @return {module:model/Category} The populated <code>Category</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -70,20 +66,8 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
-      if (data.hasOwnProperty('parentId')) {
-        obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
-      }
-      if (data.hasOwnProperty('level')) {
-        obj['level'] = ApiClient.convertToType(data['level'], 'Number');
-      }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
-      }
-      if (data.hasOwnProperty('category')) {
-        obj['category'] = ApiClient.convertToType(data['category'], 'String');
-      }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], [LocalizedValue]);
@@ -97,54 +81,14 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {Number} parentId
-   */
-  exports.prototype['parentId'] = undefined;
-  /**
-   * @member {Number} level
-   */
-  exports.prototype['level'] = undefined;
-  /**
    * @member {String} slug
    */
   exports.prototype['slug'] = undefined;
-  /**
-   * Category slug
-   * @member {String} category
-   */
-  exports.prototype['category'] = undefined;
-  /**
-   * Content type
-   * @member {module:model/Content.TypeEnum} type
-   */
-  exports.prototype['type'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} title
    */
   exports.prototype['title'] = undefined;
 
-
-  /**
-   * Allowed values for the <code>type</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.TypeEnum = {
-    /**
-     * value: "PAGE"
-     * @const
-     */
-    "PAGE": "PAGE",
-    /**
-     * value: "NEWS"
-     * @const
-     */
-    "NEWS": "NEWS",
-    /**
-     * value: "LINK"
-     * @const
-     */
-    "LINK": "LINK"  };
 
 
   return exports;

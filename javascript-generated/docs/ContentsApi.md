@@ -258,6 +258,7 @@ var apiInstance = new SoteapiClient.ContentsApi();
 var opts = { 
   'parentId': "parentId_example", // String | Filter results by parent id
   'type': ["type_example"], // [String] | Filter results by content type
+  'categorySlug': "categorySlug_example", // String | Filter by category slug
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
@@ -275,6 +276,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parentId** | **String**| Filter results by parent id | [optional] 
  **type** | [**[String]**](String.md)| Filter results by content type | [optional] 
+ **categorySlug** | **String**| Filter by category slug | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 

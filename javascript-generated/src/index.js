@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/ContentsApi'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/CategoriesApi', 'api/ContentsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Content'), require('./model/ContentImage'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/ContentsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Category'), require('./model/Content'), require('./model/ContentImage'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/CategoriesApi'), require('./api/ContentsApi'));
   }
-}(function(ApiClient, BadRequest, Content, ContentImage, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, ContentsApi) {
+}(function(ApiClient, BadRequest, Category, Content, ContentImage, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, CategoriesApi, ContentsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.12
+   * @version 0.0.13
    */
   var exports = {
     /**
@@ -66,6 +66,11 @@
      * @property {module:model/BadRequest}
      */
     BadRequest: BadRequest,
+    /**
+     * The Category model constructor.
+     * @property {module:model/Category}
+     */
+    Category: Category,
     /**
      * The Content model constructor.
      * @property {module:model/Content}
@@ -101,6 +106,11 @@
      * @property {module:model/NotImplemented}
      */
     NotImplemented: NotImplemented,
+    /**
+     * The CategoriesApi service constructor.
+     * @property {module:api/CategoriesApi}
+     */
+    CategoriesApi: CategoriesApi,
     /**
      * The ContentsApi service constructor.
      * @property {module:api/ContentsApi}
