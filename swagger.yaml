@@ -31,6 +31,7 @@ paths:
           enum:
             - PAGE  
             - NEWS
+            - LINK
         - name: firstResult
           in: query
           description: First result
@@ -277,6 +278,7 @@ definitions:
         enum:
           - PAGE  
           - NEWS
+          - LINK
       title:
         type: array
         items:
