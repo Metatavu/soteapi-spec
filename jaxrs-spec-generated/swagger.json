@@ -32,6 +32,12 @@
             "type" : "string"
           }
         }, {
+          "name" : "categorySlug",
+          "in" : "query",
+          "description" : "Filter by category slug",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -321,6 +327,58 @@
           }
         }
       }
+    },
+    "/categories" : {
+      "get" : {
+        "tags" : [ "Categories" ],
+        "summary" : "Lists categories",
+        "description" : "Lists categories\n",
+        "operationId" : "listCategories",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of categories",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Category"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -376,6 +434,23 @@
         },
         "type" : {
           "type" : "string"
+        }
+      }
+    },
+    "Category" : {
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "slug" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         }
       }
     },
