@@ -27,11 +27,9 @@ paths:
           in: query
           description: Filter results by content type
           required: false
-          type: string
-          enum:
-            - PAGE  
-            - NEWS
-            - LINK
+          type: array
+          items:
+            type: string
         - name: firstResult
           in: query
           description: First result
@@ -254,7 +252,46 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-
+  /categories:
+    get:
+      operationId: listCategories
+      summary: Lists categories
+      description: |
+        Lists categories
+      parameters:
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      tags:
+        - Categories
+      responses:
+        200:
+          description: Returns a list of categories
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Category'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
 definitions:
   Content:
     properties:
@@ -297,6 +334,17 @@ definitions:
         format: int64
       type:
         type: string
+  Category:
+    properties:
+      id:
+        type: integer
+        format: int64
+      slug:
+        type: string
+      title:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
   LocalizedValue: 
     type: object
     properties:
