@@ -335,6 +335,10 @@
         "slug" : {
           "type" : "string"
         },
+        "category" : {
+          "type" : "string",
+          "description" : "Category slug"
+        },
         "type" : {
           "type" : "string",
           "description" : "Content type",

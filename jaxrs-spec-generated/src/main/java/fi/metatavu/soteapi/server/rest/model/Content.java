@@ -16,6 +16,7 @@ public class Content   {
   private @Valid Long id = null;
   private @Valid Long parentId = null;
   private @Valid String slug = null;
+  private @Valid String category = null;
 
 public enum TypeEnum {
 
@@ -99,6 +100,23 @@ public enum TypeEnum {
   }
 
   /**
+   * Category slug
+   **/
+  public Content category(String category) {
+    this.category = category;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Category slug")
+  public String getCategory() {
+    return category;
+  }
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  /**
    * Content type
    **/
   public Content type(TypeEnum type) {
@@ -144,13 +162,14 @@ public enum TypeEnum {
     return Objects.equals(id, content.id) &&
         Objects.equals(parentId, content.parentId) &&
         Objects.equals(slug, content.slug) &&
+        Objects.equals(category, content.category) &&
         Objects.equals(type, content.type) &&
         Objects.equals(title, content.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, slug, type, title);
+    return Objects.hash(id, parentId, slug, category, type, title);
   }
 
   @Override
@@ -161,6 +180,7 @@ public enum TypeEnum {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
