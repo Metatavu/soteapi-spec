@@ -265,6 +265,9 @@ definitions:
         format: int64
       slug:
         type: string
+      category:
+        description: Category slug
+        type: string
       type:
         type: string
         description: Content type
