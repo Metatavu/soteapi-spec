@@ -22,8 +22,7 @@ paths:
           in: query
           description: Filter results by parent id
           required: false
-          type: integer
-          format: int64
+          type: string
         - name: type
           in: query
           description: Filter results by content type
