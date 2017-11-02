@@ -33,7 +33,7 @@
   /**
    * Contents service.
    * @module api/ContentsApi
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**
@@ -346,7 +346,7 @@
      * Lists contents 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.parentId Filter results by parent id
-     * @param {String} opts.path Filter results by content path
+     * @param {module:model/String} opts.type Filter results by content type
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Content>} and HTTP response
@@ -360,7 +360,7 @@
       };
       var queryParams = {
         'parentId': opts['parentId'],
-        'path': opts['path'],
+        'type': opts['type'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
       };
@@ -388,7 +388,7 @@
      * Lists contents 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.parentId Filter results by parent id
-     * @param {String} opts.path Filter results by content path
+     * @param {module:model/String} opts.type Filter results by content type
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Content>}
