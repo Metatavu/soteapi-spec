@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.10
+   * @version 0.0.11
    */
 
   /**
@@ -139,7 +139,12 @@
      * value: "NEWS"
      * @const
      */
-    "NEWS": "NEWS"  };
+    "NEWS": "NEWS",
+    /**
+     * value: "LINK"
+     * @const
+     */
+    "LINK": "LINK"  };
 
 
   return exports;

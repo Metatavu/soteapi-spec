@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 
 * `NEWS` (value: `"NEWS"`)
 
+* `LINK` (value: `"LINK"`)
+
 
 
 
