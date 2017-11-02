@@ -30,6 +30,10 @@ paths:
           type: array
           items:
             type: string
+        - name: categorySlug
+          in: query
+          description: Filter by category slug
+          type: string
         - name: firstResult
           in: query
           description: First result
