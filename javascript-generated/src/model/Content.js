@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.9
+   * @version 0.0.10
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -72,6 +73,9 @@
       if (data.hasOwnProperty('parentId')) {
         obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
       }
+      if (data.hasOwnProperty('level')) {
+        obj['level'] = ApiClient.convertToType(data['level'], 'Number');
+      }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
@@ -96,6 +100,10 @@
    * @member {Number} parentId
    */
   exports.prototype['parentId'] = undefined;
+  /**
+   * @member {Number} level
+   */
+  exports.prototype['level'] = undefined;
   /**
    * @member {String} slug
    */

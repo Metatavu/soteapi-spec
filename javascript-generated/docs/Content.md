@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [optional] 
 **parentId** | **Number** |  | [optional] 
+**level** | **Number** |  | [optional] 
 **slug** | **String** |  | [optional] 
 **category** | **String** | Category slug | [optional] 
 **type** | **String** | Content type | [optional] 
