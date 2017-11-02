@@ -332,6 +332,10 @@
           "type" : "integer",
           "format" : "int64"
         },
+        "level" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
         "slug" : {
           "type" : "string"
         },

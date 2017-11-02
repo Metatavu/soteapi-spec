@@ -15,6 +15,7 @@ public class Content   {
   
   private @Valid Long id = null;
   private @Valid Long parentId = null;
+  private @Valid Integer level = null;
   private @Valid String slug = null;
   private @Valid String category = null;
 
@@ -81,6 +82,22 @@ public enum TypeEnum {
   }
   public void setParentId(Long parentId) {
     this.parentId = parentId;
+  }
+
+  /**
+   **/
+  public Content level(Integer level) {
+    this.level = level;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Integer getLevel() {
+    return level;
+  }
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 
   /**
@@ -161,6 +178,7 @@ public enum TypeEnum {
     Content content = (Content) o;
     return Objects.equals(id, content.id) &&
         Objects.equals(parentId, content.parentId) &&
+        Objects.equals(level, content.level) &&
         Objects.equals(slug, content.slug) &&
         Objects.equals(category, content.category) &&
         Objects.equals(type, content.type) &&
@@ -169,7 +187,7 @@ public enum TypeEnum {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, slug, category, type, title);
+    return Objects.hash(id, parentId, level, slug, category, type, title);
   }
 
   @Override
@@ -179,6 +197,7 @@ public enum TypeEnum {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
