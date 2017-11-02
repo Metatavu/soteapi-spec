@@ -21,7 +21,7 @@ public class Content   {
 
 public enum TypeEnum {
 
-    PAGE(String.valueOf("PAGE")), NEWS(String.valueOf("NEWS"));
+    PAGE(String.valueOf("PAGE")), NEWS(String.valueOf("NEWS")), LINK(String.valueOf("LINK"));
 
 
     private String value;

@@ -28,7 +28,7 @@
           "description" : "Filter results by content type",
           "required" : false,
           "type" : "string",
-          "enum" : [ "PAGE", "NEWS" ]
+          "enum" : [ "PAGE", "NEWS", "LINK" ]
         }, {
           "name" : "firstResult",
           "in" : "query",
@@ -346,7 +346,7 @@
         "type" : {
           "type" : "string",
           "description" : "Content type",
-          "enum" : [ "PAGE", "NEWS" ]
+          "enum" : [ "PAGE", "NEWS", "LINK" ]
         },
         "title" : {
           "type" : "array",
