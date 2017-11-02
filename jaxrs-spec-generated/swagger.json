@@ -27,8 +27,10 @@
           "in" : "query",
           "description" : "Filter results by content type",
           "required" : false,
-          "type" : "string",
-          "enum" : [ "PAGE", "NEWS", "LINK" ]
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         }, {
           "name" : "firstResult",
           "in" : "query",
