@@ -51,6 +51,7 @@ public enum TypeEnum {
 
   private @Valid TypeEnum type = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
+  private @Valid List<LocalizedValue> content = new ArrayList<LocalizedValue>();
 
   /**
    **/
@@ -166,6 +167,22 @@ public enum TypeEnum {
     this.title = title;
   }
 
+  /**
+   **/
+  public Content content(List<LocalizedValue> content) {
+    this.content = content;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public List<LocalizedValue> getContent() {
+    return content;
+  }
+  public void setContent(List<LocalizedValue> content) {
+    this.content = content;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -182,12 +199,13 @@ public enum TypeEnum {
         Objects.equals(slug, content.slug) &&
         Objects.equals(category, content.category) &&
         Objects.equals(type, content.type) &&
-        Objects.equals(title, content.title);
+        Objects.equals(title, content.title) &&
+        Objects.equals(content, content.content);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, level, slug, category, type, title);
+    return Objects.hash(id, parentId, level, slug, category, type, title, content);
   }
 
   @Override
@@ -202,6 +220,7 @@ public enum TypeEnum {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();
   }

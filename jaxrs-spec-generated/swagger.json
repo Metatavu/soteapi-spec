@@ -125,51 +125,6 @@
         }
       }
     },
-    "/contents/{contentId}/content" : {
-      "get" : {
-        "tags" : [ "Contents" ],
-        "summary" : "Returns content content in all available languages",
-        "description" : "Returns single content content in all available languages\n",
-        "operationId" : "findContentData",
-        "parameters" : [ {
-          "name" : "contentId",
-          "in" : "path",
-          "description" : "content id",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Returns single content content in all available languages",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/LocalizedValue"
-              }
-            }
-          },
-          "400" : {
-            "description" : "Invalid request was sent to the server",
-            "schema" : {
-              "$ref" : "#/definitions/BadRequest"
-            }
-          },
-          "403" : {
-            "description" : "Attempted to make a call with unauthorized client",
-            "schema" : {
-              "$ref" : "#/definitions/Forbidden"
-            }
-          },
-          "500" : {
-            "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
-            }
-          }
-        }
-      }
-    },
     "/contents/{contentId}/images" : {
       "get" : {
         "tags" : [ "Contents" ],
@@ -409,6 +364,12 @@
           "enum" : [ "PAGE", "NEWS", "LINK" ]
         },
         "title" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "content" : {
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"

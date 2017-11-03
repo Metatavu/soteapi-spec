@@ -5,7 +5,6 @@ import fi.metatavu.soteapi.server.rest.model.Content;
 import fi.metatavu.soteapi.server.rest.model.ContentImage;
 import fi.metatavu.soteapi.server.rest.model.Forbidden;
 import fi.metatavu.soteapi.server.rest.model.InternalServerError;
-import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -23,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the contents API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-02T18:40:17.439+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-03T12:34:03.576+02:00")
 
 
 public interface ContentsApi  {
@@ -39,18 +38,6 @@ public interface ContentsApi  {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
     public Response findContent(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
-
-    @GET
-    @Path("/{contentId}/content")
-    @Consumes({ "application/json;charset&#x3D;utf-8" })
-    @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Returns content content in all available languages", notes = "Returns single content content in all available languages ", response = LocalizedValue.class, responseContainer = "List", tags={ "Contents",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns single content content in all available languages", response = LocalizedValue.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findContentData(@PathParam("contentId") @ApiParam("content id") Long contentId) throws Exception;
 
     @GET
     @Path("/{contentId}/images/{imageId}")
