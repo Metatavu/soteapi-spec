@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Content'), require('../model/ContentImage'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Content'), require('../model/ContentImage'), require('../model/Forbidden'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.SoteapiClient) {
       root.SoteapiClient = {};
     }
-    root.SoteapiClient.ContentsApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.BadRequest, root.SoteapiClient.Content, root.SoteapiClient.ContentImage, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError, root.SoteapiClient.LocalizedValue);
+    root.SoteapiClient.ContentsApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.BadRequest, root.SoteapiClient.Content, root.SoteapiClient.ContentImage, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Content, ContentImage, Forbidden, InternalServerError, LocalizedValue) {
+}(this, function(ApiClient, BadRequest, Content, ContentImage, Forbidden, InternalServerError) {
   'use strict';
 
   /**
    * Contents service.
    * @module api/ContentsApi
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
@@ -95,59 +95,6 @@
      */
     this.findContent = function(contentId) {
       return this.findContentWithHttpInfo(contentId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns content content in all available languages
-     * Returns single content content in all available languages 
-     * @param {Number} contentId content id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/LocalizedValue>} and HTTP response
-     */
-    this.findContentDataWithHttpInfo = function(contentId) {
-      var postBody = null;
-
-      // verify the required parameter 'contentId' is set
-      if (contentId === undefined || contentId === null) {
-        throw new Error("Missing the required parameter 'contentId' when calling findContentData");
-      }
-
-
-      var pathParams = {
-        'contentId': contentId
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = [LocalizedValue];
-
-      return this.apiClient.callApi(
-        '/contents/{contentId}/content', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Returns content content in all available languages
-     * Returns single content content in all available languages 
-     * @param {Number} contentId content id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/LocalizedValue>}
-     */
-    this.findContentData = function(contentId) {
-      return this.findContentDataWithHttpInfo(contentId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

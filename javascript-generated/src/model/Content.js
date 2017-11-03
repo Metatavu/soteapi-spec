@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -88,6 +89,9 @@
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], [LocalizedValue]);
       }
+      if (data.hasOwnProperty('content')) {
+        obj['content'] = ApiClient.convertToType(data['content'], [LocalizedValue]);
+      }
     }
     return obj;
   }
@@ -122,6 +126,10 @@
    * @member {Array.<module:model/LocalizedValue>} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * @member {Array.<module:model/LocalizedValue>} content
+   */
+  exports.prototype['content'] = undefined;
 
 
   /**

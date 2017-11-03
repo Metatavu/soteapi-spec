@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **category** | **String** | Category slug | [optional] 
 **type** | **String** | Content type | [optional] 
 **title** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
+**content** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 
 
 <a name="TypeEnum"></a>
