@@ -262,6 +262,90 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /events:
+    get:
+      operationId: listEvents
+      summary: Lists events
+      description: |
+        Lists events
+      parameters:
+        - name: endsAfter
+          in: query
+          type: string
+          format: date-time
+        - name: startsBefore
+          in: query
+          type: string
+          format: date-time
+        - name: categorySlug
+          in: query
+          description: Filter by category slug
+          type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      tags:
+        - Events
+      responses:
+        200:
+          description: Returns a list of events
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /events/{eventId}:
+    get:
+      operationId: findEvent
+      summary: Finds event
+      description: |
+        Finds single event
+      parameters:
+        - name: eventId
+          in: path
+          description: event id
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - Events
+      responses:
+        200:
+          description: Returns a single event
+          schema:
+            $ref: '#/definitions/Event'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
 definitions:
   Content:
     properties:
@@ -308,6 +392,42 @@ definitions:
         format: int64
       type:
         type: string
+  Event:
+    properties:
+      id:
+        type: integer
+        format: int64
+      slug:
+        type: string
+      category:
+        description: Category slug
+        type: string
+      title:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      description:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      startDate:
+        type: string
+        format: date
+        description: Event's start date.
+      startTime:
+        type: string
+        format: time
+        description: Event's start time. 
+      endDate:
+        type: string
+        format: date
+        description: Event's end date.
+      endTime:
+        type: string
+        format: time
+        description: Event's end time. 
+      allDay: 
+        type: boolean
   Category:
     properties:
       id:
