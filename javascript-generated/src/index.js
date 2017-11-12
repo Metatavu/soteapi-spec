@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Content', 'model/ContentImage', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/CategoriesApi', 'api/ContentsApi'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Content', 'model/ContentImage', 'model/Event', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/CategoriesApi', 'api/ContentsApi', 'api/EventsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Category'), require('./model/Content'), require('./model/ContentImage'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/CategoriesApi'), require('./api/ContentsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Category'), require('./model/Content'), require('./model/ContentImage'), require('./model/Event'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/CategoriesApi'), require('./api/ContentsApi'), require('./api/EventsApi'));
   }
-}(function(ApiClient, BadRequest, Category, Content, ContentImage, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, CategoriesApi, ContentsApi) {
+}(function(ApiClient, BadRequest, Category, Content, ContentImage, Event, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, CategoriesApi, ContentsApi, EventsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.14
+   * @version 0.0.15
    */
   var exports = {
     /**
@@ -81,6 +81,11 @@
      * @property {module:model/ContentImage}
      */
     ContentImage: ContentImage,
+    /**
+     * The Event model constructor.
+     * @property {module:model/Event}
+     */
+    Event: Event,
     /**
      * The Forbidden model constructor.
      * @property {module:model/Forbidden}
@@ -115,7 +120,12 @@
      * The ContentsApi service constructor.
      * @property {module:api/ContentsApi}
      */
-    ContentsApi: ContentsApi
+    ContentsApi: ContentsApi,
+    /**
+     * The EventsApi service constructor.
+     * @property {module:api/EventsApi}
+     */
+    EventsApi: EventsApi
   };
 
   return exports;
