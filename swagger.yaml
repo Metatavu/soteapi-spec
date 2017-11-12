@@ -272,11 +272,9 @@ paths:
         - name: endsAfter
           in: query
           type: string
-          format: date-time
         - name: startsBefore
           in: query
           type: string
-          format: date-time
         - name: categorySlug
           in: query
           description: Filter by category slug
