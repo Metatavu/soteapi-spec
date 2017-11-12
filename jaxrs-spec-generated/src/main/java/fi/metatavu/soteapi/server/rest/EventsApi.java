@@ -4,7 +4,6 @@ import fi.metatavu.soteapi.server.rest.model.BadRequest;
 import fi.metatavu.soteapi.server.rest.model.Event;
 import fi.metatavu.soteapi.server.rest.model.Forbidden;
 import fi.metatavu.soteapi.server.rest.model.InternalServerError;
-import java.time.OffsetDateTime;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -22,7 +21,7 @@ import java.lang.Exception;
 @Api(description = "the events API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-12T10:51:03.196+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-12T13:51:47.044+02:00")
 
 
 public interface EventsApi  {
@@ -49,5 +48,5 @@ public interface EventsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listEvents(@QueryParam("endsAfter")    OffsetDateTime endsAfter,@QueryParam("startsBefore")    OffsetDateTime startsBefore,@QueryParam("categorySlug")   @ApiParam("Filter by category slug")  String categorySlug,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listEvents(@QueryParam("endsAfter")    String endsAfter,@QueryParam("startsBefore")    String startsBefore,@QueryParam("categorySlug")   @ApiParam("Filter by category slug")  String categorySlug,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 }

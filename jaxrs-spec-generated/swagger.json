@@ -345,14 +345,12 @@
           "name" : "endsAfter",
           "in" : "query",
           "required" : false,
-          "type" : "string",
-          "format" : "date-time"
+          "type" : "string"
         }, {
           "name" : "startsBefore",
           "in" : "query",
           "required" : false,
-          "type" : "string",
-          "format" : "date-time"
+          "type" : "string"
         }, {
           "name" : "categorySlug",
           "in" : "query",
