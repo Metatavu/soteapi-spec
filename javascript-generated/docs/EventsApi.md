@@ -66,8 +66,8 @@ var SoteapiClient = require('soteapi-client');
 var apiInstance = new SoteapiClient.EventsApi();
 
 var opts = { 
-  'endsAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'startsBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'endsAfter': "endsAfter_example", // String | 
+  'startsBefore': "startsBefore_example", // String | 
   'categorySlug': "categorySlug_example", // String | Filter by category slug
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
@@ -84,8 +84,8 @@ apiInstance.listEvents(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **endsAfter** | **Date**|  | [optional] 
- **startsBefore** | **Date**|  | [optional] 
+ **endsAfter** | **String**|  | [optional] 
+ **startsBefore** | **String**|  | [optional] 
  **categorySlug** | **String**| Filter by category slug | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 

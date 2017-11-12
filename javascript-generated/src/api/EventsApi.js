@@ -33,7 +33,7 @@
   /**
    * Events service.
    * @module api/EventsApi
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
@@ -105,8 +105,8 @@
      * Lists events
      * Lists events 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.endsAfter 
-     * @param {Date} opts.startsBefore 
+     * @param {String} opts.endsAfter 
+     * @param {String} opts.startsBefore 
      * @param {String} opts.categorySlug Filter by category slug
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
@@ -149,8 +149,8 @@
      * Lists events
      * Lists events 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.endsAfter 
-     * @param {Date} opts.startsBefore 
+     * @param {String} opts.endsAfter 
+     * @param {String} opts.startsBefore 
      * @param {String} opts.categorySlug Filter by category slug
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results

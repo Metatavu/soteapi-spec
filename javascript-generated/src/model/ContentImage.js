@@ -36,7 +36,7 @@
   /**
    * The ContentImage model module.
    * @module model/ContentImage
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
