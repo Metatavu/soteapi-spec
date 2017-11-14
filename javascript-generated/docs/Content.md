@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **type** | **String** | Content type | [optional] 
 **title** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **content** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
+**created** | **Date** | Create time. | [optional] 
+**modified** | **Date** | Create time. | [optional] 
 
 
 <a name="TypeEnum"></a>

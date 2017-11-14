@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.16
+   * @version 0.0.17
    */
 
   /**
@@ -46,6 +46,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -92,6 +94,12 @@
       if (data.hasOwnProperty('content')) {
         obj['content'] = ApiClient.convertToType(data['content'], [LocalizedValue]);
       }
+      if (data.hasOwnProperty('created')) {
+        obj['created'] = ApiClient.convertToType(data['created'], 'Date');
+      }
+      if (data.hasOwnProperty('modified')) {
+        obj['modified'] = ApiClient.convertToType(data['modified'], 'Date');
+      }
     }
     return obj;
   }
@@ -130,6 +138,16 @@
    * @member {Array.<module:model/LocalizedValue>} content
    */
   exports.prototype['content'] = undefined;
+  /**
+   * Create time.
+   * @member {Date} created
+   */
+  exports.prototype['created'] = undefined;
+  /**
+   * Create time.
+   * @member {Date} modified
+   */
+  exports.prototype['modified'] = undefined;
 
 
   /**
