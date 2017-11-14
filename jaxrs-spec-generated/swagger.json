@@ -484,6 +484,16 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Create time."
+        },
+        "modified" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Create time."
         }
       }
     },

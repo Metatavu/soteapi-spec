@@ -1,6 +1,7 @@
 package fi.metatavu.soteapi.server.rest.model;
 
 import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.*;
@@ -52,6 +53,8 @@ public enum TypeEnum {
   private @Valid TypeEnum type = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid List<LocalizedValue> content = new ArrayList<LocalizedValue>();
+  private @Valid OffsetDateTime created = null;
+  private @Valid OffsetDateTime modified = null;
 
   /**
    **/
@@ -183,6 +186,40 @@ public enum TypeEnum {
     this.content = content;
   }
 
+  /**
+   * Create time.
+   **/
+  public Content created(OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Create time.")
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+  public void setCreated(OffsetDateTime created) {
+    this.created = created;
+  }
+
+  /**
+   * Create time.
+   **/
+  public Content modified(OffsetDateTime modified) {
+    this.modified = modified;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Create time.")
+  public OffsetDateTime getModified() {
+    return modified;
+  }
+  public void setModified(OffsetDateTime modified) {
+    this.modified = modified;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -200,12 +237,14 @@ public enum TypeEnum {
         Objects.equals(category, content.category) &&
         Objects.equals(type, content.type) &&
         Objects.equals(title, content.title) &&
-        Objects.equals(content, content.content);
+        Objects.equals(content, content.content) &&
+        Objects.equals(created, content.created) &&
+        Objects.equals(modified, content.modified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, level, slug, category, type, title, content);
+    return Objects.hash(id, parentId, level, slug, category, type, title, content, created, modified);
   }
 
   @Override
@@ -221,6 +260,8 @@ public enum TypeEnum {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("}");
     return sb.toString();
   }
