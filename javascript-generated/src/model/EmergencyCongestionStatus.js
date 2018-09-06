@@ -36,7 +36,7 @@
   /**
    * The EmergencyCongestionStatus model module.
    * @module model/EmergencyCongestionStatus
-   * @version 0.0.18
+   * @version 0.0.19
    */
 
   /**

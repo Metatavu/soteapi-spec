@@ -33,7 +33,7 @@
   /**
    * Contents service.
    * @module api/ContentsApi
-   * @version 0.0.18
+   * @version 0.0.19
    */
 
   /**

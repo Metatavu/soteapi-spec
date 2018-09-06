@@ -1,6 +1,6 @@
 {
   "name": "soteapi-client",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "SOTE_API",
   "license": "gpl-3.0",
   "main": "src/index.js",
