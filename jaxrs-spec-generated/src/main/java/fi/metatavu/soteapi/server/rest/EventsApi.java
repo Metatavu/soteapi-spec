@@ -21,7 +21,7 @@ import java.lang.Exception;
 @Api(description = "the events API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-14T15:57:45.054+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-09-06T18:12:56.464+03:00")
 
 
 public interface EventsApi  {

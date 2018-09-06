@@ -444,6 +444,64 @@
           }
         }
       }
+    },
+    "/emergencyCongestionStatuses" : {
+      "get" : {
+        "tags" : [ "EmergencyCongestionStatuses" ],
+        "summary" : "Lists emergency congestion statuses",
+        "description" : "List of emergency congestion statuses",
+        "operationId" : "listEmergencyCongestionStatuses",
+        "parameters" : [ {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort results. See EmergencyCongestionStatusListSort for sort options",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a lists emergency congestion statuses",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/EmergencyCongestionStatus"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -585,6 +643,23 @@
         }
       }
     },
+    "EmergencyCongestionStatus" : {
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "value" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "created" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Create time."
+        }
+      }
+    },
     "LocalizedValue" : {
       "type" : "object",
       "properties" : {
@@ -655,6 +730,10 @@
           "type" : "string"
         }
       }
+    },
+    "EmergencyCongestionStatusListSort" : {
+      "type" : "string",
+      "enum" : [ "CREATED_DESC", "CREATED_ASC" ]
     }
   }
 }
