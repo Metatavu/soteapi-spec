@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Content', 'model/ContentImage', 'model/Event', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/CategoriesApi', 'api/ContentsApi', 'api/EventsApi'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Content', 'model/ContentImage', 'model/EmergencyCongestionStatus', 'model/EmergencyCongestionStatusListSort', 'model/Event', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NotFound', 'model/NotImplemented', 'api/CategoriesApi', 'api/ContentsApi', 'api/EmergencyCongestionStatusesApi', 'api/EventsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Category'), require('./model/Content'), require('./model/ContentImage'), require('./model/Event'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/CategoriesApi'), require('./api/ContentsApi'), require('./api/EventsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BadRequest'), require('./model/Category'), require('./model/Content'), require('./model/ContentImage'), require('./model/EmergencyCongestionStatus'), require('./model/EmergencyCongestionStatusListSort'), require('./model/Event'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NotFound'), require('./model/NotImplemented'), require('./api/CategoriesApi'), require('./api/ContentsApi'), require('./api/EmergencyCongestionStatusesApi'), require('./api/EventsApi'));
   }
-}(function(ApiClient, BadRequest, Category, Content, ContentImage, Event, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, CategoriesApi, ContentsApi, EventsApi) {
+}(function(ApiClient, BadRequest, Category, Content, ContentImage, EmergencyCongestionStatus, EmergencyCongestionStatusListSort, Event, Forbidden, InternalServerError, LocalizedValue, NotFound, NotImplemented, CategoriesApi, ContentsApi, EmergencyCongestionStatusesApi, EventsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.17
+   * @version 0.0.18
    */
   var exports = {
     /**
@@ -81,6 +81,16 @@
      * @property {module:model/ContentImage}
      */
     ContentImage: ContentImage,
+    /**
+     * The EmergencyCongestionStatus model constructor.
+     * @property {module:model/EmergencyCongestionStatus}
+     */
+    EmergencyCongestionStatus: EmergencyCongestionStatus,
+    /**
+     * The EmergencyCongestionStatusListSort model constructor.
+     * @property {module:model/EmergencyCongestionStatusListSort}
+     */
+    EmergencyCongestionStatusListSort: EmergencyCongestionStatusListSort,
     /**
      * The Event model constructor.
      * @property {module:model/Event}
@@ -121,6 +131,11 @@
      * @property {module:api/ContentsApi}
      */
     ContentsApi: ContentsApi,
+    /**
+     * The EmergencyCongestionStatusesApi service constructor.
+     * @property {module:api/EmergencyCongestionStatusesApi}
+     */
+    EmergencyCongestionStatusesApi: EmergencyCongestionStatusesApi,
     /**
      * The EventsApi service constructor.
      * @property {module:api/EventsApi}

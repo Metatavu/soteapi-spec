@@ -25,7 +25,7 @@
     if (!root.SoteapiClient) {
       root.SoteapiClient = {};
     }
-    root.SoteapiClient.ContentImage = factory(root.SoteapiClient.ApiClient);
+    root.SoteapiClient.EmergencyCongestionStatus = factory(root.SoteapiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The ContentImage model module.
-   * @module model/ContentImage
+   * The EmergencyCongestionStatus model module.
+   * @module model/EmergencyCongestionStatus
    * @version 0.0.18
    */
 
   /**
-   * Constructs a new <code>ContentImage</code>.
-   * @alias module:model/ContentImage
+   * Constructs a new <code>EmergencyCongestionStatus</code>.
+   * @alias module:model/EmergencyCongestionStatus
    * @class
    */
   var exports = function() {
@@ -50,16 +50,14 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>ContentImage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>EmergencyCongestionStatus</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ContentImage} obj Optional instance to populate.
-   * @return {module:model/ContentImage} The populated <code>ContentImage</code> instance.
+   * @param {module:model/EmergencyCongestionStatus} obj Optional instance to populate.
+   * @return {module:model/EmergencyCongestionStatus} The populated <code>EmergencyCongestionStatus</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -68,17 +66,11 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'Number');
       }
-      if (data.hasOwnProperty('contentType')) {
-        obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
-      }
-      if (data.hasOwnProperty('size')) {
-        obj['size'] = ApiClient.convertToType(data['size'], 'Number');
-      }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('created')) {
+        obj['created'] = ApiClient.convertToType(data['created'], 'Date');
       }
     }
     return obj;
@@ -89,21 +81,14 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} name
+   * @member {Number} value
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['value'] = undefined;
   /**
-   * @member {String} contentType
+   * Create time.
+   * @member {Date} created
    */
-  exports.prototype['contentType'] = undefined;
-  /**
-   * @member {Number} size
-   */
-  exports.prototype['size'] = undefined;
-  /**
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
+  exports.prototype['created'] = undefined;
 
 
 

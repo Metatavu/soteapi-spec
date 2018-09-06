@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Forbidden', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/EmergencyCongestionStatus', 'model/Forbidden', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Category'), require('../model/Forbidden'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/EmergencyCongestionStatus'), require('../model/Forbidden'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.SoteapiClient) {
       root.SoteapiClient = {};
     }
-    root.SoteapiClient.CategoriesApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.BadRequest, root.SoteapiClient.Category, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError);
+    root.SoteapiClient.EmergencyCongestionStatusesApi = factory(root.SoteapiClient.ApiClient, root.SoteapiClient.BadRequest, root.SoteapiClient.EmergencyCongestionStatus, root.SoteapiClient.Forbidden, root.SoteapiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Category, Forbidden, InternalServerError) {
+}(this, function(ApiClient, BadRequest, EmergencyCongestionStatus, Forbidden, InternalServerError) {
   'use strict';
 
   /**
-   * Categories service.
-   * @module api/CategoriesApi
+   * EmergencyCongestionStatuses service.
+   * @module api/EmergencyCongestionStatusesApi
    * @version 0.0.18
    */
 
   /**
-   * Constructs a new CategoriesApi. 
-   * @alias module:api/CategoriesApi
+   * Constructs a new EmergencyCongestionStatusesApi. 
+   * @alias module:api/EmergencyCongestionStatusesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -49,14 +49,15 @@
 
 
     /**
-     * Lists categories
-     * Lists categories 
+     * Lists emergency congestion statuses
+     * List of emergency congestion statuses
      * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort results. See EmergencyCongestionStatusListSort for sort options
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Category>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/EmergencyCongestionStatus>} and HTTP response
      */
-    this.listCategoriesWithHttpInfo = function(opts) {
+    this.listEmergencyCongestionStatusesWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -64,6 +65,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'sort': opts['sort'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
       };
@@ -77,25 +79,26 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Category];
+      var returnType = [EmergencyCongestionStatus];
 
       return this.apiClient.callApi(
-        '/categories', 'GET',
+        '/emergencyCongestionStatuses', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Lists categories
-     * Lists categories 
+     * Lists emergency congestion statuses
+     * List of emergency congestion statuses
      * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort results. See EmergencyCongestionStatusListSort for sort options
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Category>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/EmergencyCongestionStatus>}
      */
-    this.listCategories = function(opts) {
-      return this.listCategoriesWithHttpInfo(opts)
+    this.listEmergencyCongestionStatuses = function(opts) {
+      return this.listEmergencyCongestionStatusesWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
