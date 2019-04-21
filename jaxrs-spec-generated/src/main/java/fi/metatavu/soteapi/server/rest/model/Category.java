@@ -1,21 +1,27 @@
 package fi.metatavu.soteapi.server.rest.model;
 
-import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
-import java.util.ArrayList;
+import java.util.UUID;
 import java.util.List;
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class Category   {
-  
   private @Valid Long id = null;
   private @Valid String slug = null;
-  private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
+  private @Valid List<LocalizedValue> title = new ArrayList<>();
 
   /**
    **/
@@ -25,7 +31,9 @@ public class Category   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("id")
+
   public Long getId() {
     return id;
   }
@@ -41,7 +49,9 @@ public class Category   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("slug")
+
   public String getSlug() {
     return slug;
   }
@@ -57,7 +67,9 @@ public class Category   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("title")
+
   public List<LocalizedValue> getTitle() {
     return title;
   }
@@ -108,4 +120,3 @@ public class Category   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

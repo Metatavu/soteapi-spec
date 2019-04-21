@@ -18,44 +18,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 
-public class Forbidden   {
-  private @Valid Integer code = null;
-  private @Valid String message = null;
+public class ReviewProduct   {
+  private @Valid Long id = null;
+  private @Valid String name = null;
 
   /**
    **/
-  public Forbidden code(Integer code) {
-    this.code = code;
+  public ReviewProduct id(Long id) {
+    this.id = id;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("code")
+  @JsonProperty("id")
 
-  public Integer getCode() {
-    return code;
+  public Long getId() {
+    return id;
   }
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   /**
    **/
-  public Forbidden message(String message) {
-    this.message = message;
+  public ReviewProduct name(String name) {
+    this.name = name;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("message")
+  @JsonProperty("name")
 
-  public String getMessage() {
-    return message;
+  public String getName() {
+    return name;
   }
-  public void setMessage(String message) {
-    this.message = message;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -67,23 +67,23 @@ public class Forbidden   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Forbidden forbidden = (Forbidden) o;
-    return Objects.equals(code, forbidden.code) &&
-        Objects.equals(message, forbidden.message);
+    ReviewProduct reviewProduct = (ReviewProduct) o;
+    return Objects.equals(id, reviewProduct.id) &&
+        Objects.equals(name, reviewProduct.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(id, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Forbidden {\n");
+    sb.append("class ReviewProduct {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

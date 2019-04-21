@@ -1,15 +1,24 @@
 package fi.metatavu.soteapi.server.rest.model;
 
+import java.util.UUID;
+import java.util.List;
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class ContentImage   {
-  
   private @Valid Long id = null;
   private @Valid String name = null;
   private @Valid String contentType = null;
@@ -24,7 +33,9 @@ public class ContentImage   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("id")
+
   public Long getId() {
     return id;
   }
@@ -40,7 +51,9 @@ public class ContentImage   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("name")
+
   public String getName() {
     return name;
   }
@@ -56,7 +69,9 @@ public class ContentImage   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("contentType")
+
   public String getContentType() {
     return contentType;
   }
@@ -72,7 +87,9 @@ public class ContentImage   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("size")
+
   public Long getSize() {
     return size;
   }
@@ -88,7 +105,9 @@ public class ContentImage   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("type")
+
   public String getType() {
     return type;
   }
@@ -143,4 +162,3 @@ public class ContentImage   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

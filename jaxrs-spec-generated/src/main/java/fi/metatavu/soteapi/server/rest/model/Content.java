@@ -1,25 +1,29 @@
 package fi.metatavu.soteapi.server.rest.model;
 
-import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
+import java.util.UUID;
 import java.util.List;
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class Content   {
-  
   private @Valid Long id = null;
   private @Valid Long parentId = null;
   private @Valid Integer level = null;
   private @Valid String slug = null;
   private @Valid String category = null;
-
 public enum TypeEnum {
 
     PAGE(String.valueOf("PAGE")), NEWS(String.valueOf("NEWS")), LINK(String.valueOf("LINK"));
@@ -36,10 +40,12 @@ public enum TypeEnum {
     }
 
     @Override
+    @JsonValue
     public String toString() {
         return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String v) {
         for (TypeEnum b : TypeEnum.values()) {
             if (String.valueOf(b.value).equals(v)) {
@@ -49,10 +55,9 @@ public enum TypeEnum {
         return null;
     }
 }
-
   private @Valid TypeEnum type = null;
-  private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
-  private @Valid List<LocalizedValue> content = new ArrayList<LocalizedValue>();
+  private @Valid List<LocalizedValue> title = new ArrayList<>();
+  private @Valid List<LocalizedValue> content = new ArrayList<>();
   private @Valid OffsetDateTime created = null;
   private @Valid OffsetDateTime modified = null;
 
@@ -64,7 +69,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("id")
+
   public Long getId() {
     return id;
   }
@@ -80,7 +87,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("parentId")
+
   public Long getParentId() {
     return parentId;
   }
@@ -96,7 +105,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("level")
+
   public Integer getLevel() {
     return level;
   }
@@ -112,7 +123,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("slug")
+
   public String getSlug() {
     return slug;
   }
@@ -129,7 +142,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "Category slug")
+  //@ApiModelProperty(value = "Category slug")
+  @JsonProperty("category")
+
   public String getCategory() {
     return category;
   }
@@ -146,7 +161,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "Content type")
+  //@ApiModelProperty(value = "Content type")
+  @JsonProperty("type")
+
   public TypeEnum getType() {
     return type;
   }
@@ -162,7 +179,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("title")
+
   public List<LocalizedValue> getTitle() {
     return title;
   }
@@ -178,7 +197,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("content")
+
   public List<LocalizedValue> getContent() {
     return content;
   }
@@ -195,7 +216,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "Create time.")
+  //@ApiModelProperty(value = "Create time.")
+  @JsonProperty("created")
+
   public OffsetDateTime getCreated() {
     return created;
   }
@@ -212,7 +235,9 @@ public enum TypeEnum {
   }
 
   
-  @ApiModelProperty(value = "Create time.")
+  //@ApiModelProperty(value = "Create time.")
+  @JsonProperty("modified")
+
   public OffsetDateTime getModified() {
     return modified;
   }
@@ -277,4 +302,3 @@ public enum TypeEnum {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

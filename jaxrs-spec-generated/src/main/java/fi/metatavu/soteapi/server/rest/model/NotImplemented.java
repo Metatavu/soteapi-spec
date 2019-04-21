@@ -1,15 +1,24 @@
 package fi.metatavu.soteapi.server.rest.model;
 
+import java.util.UUID;
+import java.util.List;
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class NotImplemented   {
-  
   private @Valid Integer code = null;
   private @Valid String message = null;
 
@@ -21,7 +30,9 @@ public class NotImplemented   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("code")
+
   public Integer getCode() {
     return code;
   }
@@ -37,7 +48,9 @@ public class NotImplemented   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("message")
+
   public String getMessage() {
     return message;
   }
@@ -86,4 +99,3 @@ public class NotImplemented   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

@@ -1,15 +1,24 @@
 package fi.metatavu.soteapi.server.rest.model;
 
+import java.util.UUID;
+import java.util.List;
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class LocalizedValue   {
-  
   private @Valid String language = null;
   private @Valid String value = null;
 
@@ -21,7 +30,9 @@ public class LocalizedValue   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("language")
+
   public String getLanguage() {
     return language;
   }
@@ -37,7 +48,9 @@ public class LocalizedValue   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("value")
+
   public String getValue() {
     return value;
   }
@@ -86,4 +99,3 @@ public class LocalizedValue   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

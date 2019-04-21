@@ -1,16 +1,24 @@
 package fi.metatavu.soteapi.server.rest.model;
 
+import java.util.UUID;
+import java.util.List;
 import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class EmergencyCongestionStatus   {
-  
   private @Valid Long id = null;
   private @Valid Integer value = null;
   private @Valid OffsetDateTime created = null;
@@ -23,7 +31,9 @@ public class EmergencyCongestionStatus   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("id")
+
   public Long getId() {
     return id;
   }
@@ -39,7 +49,9 @@ public class EmergencyCongestionStatus   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("value")
+
   public Integer getValue() {
     return value;
   }
@@ -56,7 +68,9 @@ public class EmergencyCongestionStatus   {
   }
 
   
-  @ApiModelProperty(value = "Create time.")
+  //@ApiModelProperty(value = "Create time.")
+  @JsonProperty("created")
+
   public OffsetDateTime getCreated() {
     return created;
   }
@@ -107,4 +121,3 @@ public class EmergencyCongestionStatus   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

@@ -1,24 +1,29 @@
 package fi.metatavu.soteapi.server.rest.model;
 
-import fi.metatavu.soteapi.server.rest.model.LocalizedValue;
+import java.util.UUID;
+import java.util.List;
+import java.time.OffsetDateTime;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
+import fi.metatavu.soteapi.server.rest.model.*;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 
-import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.*;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 
 public class Event   {
-  
   private @Valid Long id = null;
   private @Valid String slug = null;
   private @Valid String category = null;
-  private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
-  private @Valid List<LocalizedValue> description = new ArrayList<LocalizedValue>();
+  private @Valid List<LocalizedValue> title = new ArrayList<>();
+  private @Valid List<LocalizedValue> description = new ArrayList<>();
   private @Valid LocalDate startDate = null;
   private @Valid String startTime = null;
   private @Valid LocalDate endDate = null;
@@ -33,7 +38,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("id")
+
   public Long getId() {
     return id;
   }
@@ -49,7 +56,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("slug")
+
   public String getSlug() {
     return slug;
   }
@@ -66,7 +75,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "Category slug")
+  //@ApiModelProperty(value = "Category slug")
+  @JsonProperty("category")
+
   public String getCategory() {
     return category;
   }
@@ -82,7 +93,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("title")
+
   public List<LocalizedValue> getTitle() {
     return title;
   }
@@ -98,7 +111,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
+  @JsonProperty("description")
+
   public List<LocalizedValue> getDescription() {
     return description;
   }
@@ -107,7 +122,7 @@ public class Event   {
   }
 
   /**
-   * Event&#39;s start date.
+   * Event&#x27;s start date.
    **/
   public Event startDate(LocalDate startDate) {
     this.startDate = startDate;
@@ -115,7 +130,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "Event's start date.")
+  //@ApiModelProperty(value = "Event's start date.")
+  @JsonProperty("startDate")
+
   public LocalDate getStartDate() {
     return startDate;
   }
@@ -124,7 +141,7 @@ public class Event   {
   }
 
   /**
-   * Event&#39;s start time.
+   * Event&#x27;s start time.
    **/
   public Event startTime(String startTime) {
     this.startTime = startTime;
@@ -132,7 +149,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "Event's start time.")
+  //@ApiModelProperty(value = "Event's start time.")
+  @JsonProperty("startTime")
+
   public String getStartTime() {
     return startTime;
   }
@@ -141,7 +160,7 @@ public class Event   {
   }
 
   /**
-   * Event&#39;s end date.
+   * Event&#x27;s end date.
    **/
   public Event endDate(LocalDate endDate) {
     this.endDate = endDate;
@@ -149,7 +168,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "Event's end date.")
+  //@ApiModelProperty(value = "Event's end date.")
+  @JsonProperty("endDate")
+
   public LocalDate getEndDate() {
     return endDate;
   }
@@ -158,7 +179,7 @@ public class Event   {
   }
 
   /**
-   * Event&#39;s end time.
+   * Event&#x27;s end time.
    **/
   public Event endTime(String endTime) {
     this.endTime = endTime;
@@ -166,7 +187,9 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "Event's end time.")
+  //@ApiModelProperty(value = "Event's end time.")
+  @JsonProperty("endTime")
+
   public String getEndTime() {
     return endTime;
   }
@@ -182,8 +205,10 @@ public class Event   {
   }
 
   
-  @ApiModelProperty(value = "")
-  public Boolean isAllDay() {
+  //@ApiModelProperty(value = "")
+  @JsonProperty("allDay")
+
+  public Boolean isisAllDay() {
     return allDay;
   }
   public void setAllDay(Boolean allDay) {
@@ -247,4 +272,3 @@ public class Event   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

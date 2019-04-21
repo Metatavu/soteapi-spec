@@ -18,45 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 
-public class Forbidden   {
-  private @Valid Integer code = null;
-  private @Valid String message = null;
-
-  /**
-   **/
-  public Forbidden code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-  
-  //@ApiModelProperty(value = "")
-  @JsonProperty("code")
-
-  public Integer getCode() {
-    return code;
-  }
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  /**
-   **/
-  public Forbidden message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  
-  //@ApiModelProperty(value = "")
-  @JsonProperty("message")
-
-  public String getMessage() {
-    return message;
-  }
-  public void setMessage(String message) {
-    this.message = message;
-  }
+public class ReviewListSort   {
 
 
   @Override
@@ -67,23 +29,20 @@ public class Forbidden   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Forbidden forbidden = (Forbidden) o;
-    return Objects.equals(code, forbidden.code) &&
-        Objects.equals(message, forbidden.message);
+    ReviewListSort reviewListSort = (ReviewListSort) o;
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Forbidden {\n");
+    sb.append("class ReviewListSort {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
