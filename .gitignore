@@ -5,3 +5,10 @@ node_modules
 /jaxrs-spec-generated/pom.xml.before
 /jaxrs-spec-generated/pom.xml.releaseBackup
 /jaxrs-spec-generated/release.properties
+swagger-codegen-cli-3.0.7.jar
+jaxrs-spec-generated/.project
+jaxrs-spec-generated/.settings/org.eclipse.core.resources.prefs
+jaxrs-spec-generated/.settings/org.eclipse.jdt.apt.core.prefs
+jaxrs-spec-generated/.settings/org.eclipse.jdt.core.prefs
+jaxrs-spec-generated/.settings/org.eclipse.m2e.core.prefs
+jaxrs-spec-generated/.classpath
