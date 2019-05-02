@@ -21,45 +21,43 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
-@Path("/events")
+@Path("/surveyQuestions")
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-05-02T19:05:47.365+03:00[Europe/Helsinki]")
-public interface EventsApi {
+public interface SurveyQuestionsApi {
 
     @GET
-    @Path("/{eventId}")
+    @Path("/{surveyQuestionId}")
     @Produces({ "application/json;charset=utf-8" })
-    @Operation(summary = "Finds event", description = "Finds single event ", tags={ "Events" })
+    @Operation(summary = "Finds surveyQuestion", description = "Finds single surveyQuestion ", tags={ "SurveyQuestions" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Returns a single event", content = @Content(schema = @Schema(implementation = Event.class))),
+        @ApiResponse(responseCode = "200", description = "Returns a single surveyQuestion", content = @Content(schema = @Schema(implementation = SurveyQuestion.class))),
         @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
         @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
         @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
-    Response findEvent( @PathParam("eventId")
+    Response findSurveyQuestion( @PathParam("surveyQuestionId")
 
- @Parameter(description = "event id") Long eventId
+ @Parameter(description = "surveyQuestion id") Long surveyQuestionId
+);
+    @GET
+    @Path("/{surveyQuestionId}/summary")
+    @Produces({ "application/json;charset=utf-8" })
+    @Operation(summary = "Finds survey question summary", description = "Finds single surveyQuestion summary ", tags={ "SurveyQuestions" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Returns a single surveyQuestion", content = @Content(schema = @Schema(implementation = SurveyQuestionSummary.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
+        @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
+    Response findSurveyQuestionSummary( @PathParam("surveyQuestionId")
+
+ @Parameter(description = "surveyQuestion id") Long surveyQuestionId
 );
     @GET
     @Produces({ "application/json;charset=utf-8" })
-    @Operation(summary = "Lists events", description = "Lists events ", tags={ "Events" })
+    @Operation(summary = "Lists surveyQuestions", description = "Lists surveyQuestions ", tags={ "SurveyQuestions" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Returns a list of events", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Event.class)))),
+        @ApiResponse(responseCode = "200", description = "Returns a list of surveyQuestions", content = @Content(array = @ArraySchema(schema = @Schema(implementation = SurveyQuestion.class)))),
         @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
         @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
         @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
-    Response listEvents(  @QueryParam("endsAfter") 
-
-  String endsAfter
-,  @QueryParam("startsBefore") 
-
-  String startsBefore
-,  @QueryParam("categorySlug") 
-
- @Parameter(description = "Filter by category slug")  String categorySlug
-,  @QueryParam("firstResult") 
-
- @Parameter(description = "First result")  Long firstResult
-,  @QueryParam("maxResults") 
-
- @Parameter(description = "Max results")  Long maxResults
-);}
+    Response listSurveyQuestions();}

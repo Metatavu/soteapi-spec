@@ -23,7 +23,7 @@ import javax.validation.Valid;
 
 @Path("/reviewProducts")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-04-21T16:17:44.478+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-05-02T19:05:47.365+03:00[Europe/Helsinki]")
 public interface ReviewProductsApi {
 
     @GET

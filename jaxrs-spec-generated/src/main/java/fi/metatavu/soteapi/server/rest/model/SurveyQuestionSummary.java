@@ -18,63 +18,63 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 
-public class ReviewProduct   {
-  private @Valid Long id = null;
-  private @Valid String name = null;
-  private @Valid String link = null;
+public class SurveyQuestionSummary   {
+  private @Valid Long positive = null;
+  private @Valid Long negative = null;
+  private @Valid Long total = null;
 
   /**
    **/
-  public ReviewProduct id(Long id) {
-    this.id = id;
+  public SurveyQuestionSummary positive(Long positive) {
+    this.positive = positive;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("id")
+  @JsonProperty("positive")
 
-  public Long getId() {
-    return id;
+  public Long getPositive() {
+    return positive;
   }
-  public void setId(Long id) {
-    this.id = id;
+  public void setPositive(Long positive) {
+    this.positive = positive;
   }
 
   /**
    **/
-  public ReviewProduct name(String name) {
-    this.name = name;
+  public SurveyQuestionSummary negative(Long negative) {
+    this.negative = negative;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("name")
+  @JsonProperty("negative")
 
-  public String getName() {
-    return name;
+  public Long getNegative() {
+    return negative;
   }
-  public void setName(String name) {
-    this.name = name;
+  public void setNegative(Long negative) {
+    this.negative = negative;
   }
 
   /**
    **/
-  public ReviewProduct link(String link) {
-    this.link = link;
+  public SurveyQuestionSummary total(Long total) {
+    this.total = total;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("link")
+  @JsonProperty("total")
 
-  public String getLink() {
-    return link;
+  public Long getTotal() {
+    return total;
   }
-  public void setLink(String link) {
-    this.link = link;
+  public void setTotal(Long total) {
+    this.total = total;
   }
 
 
@@ -86,25 +86,25 @@ public class ReviewProduct   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReviewProduct reviewProduct = (ReviewProduct) o;
-    return Objects.equals(id, reviewProduct.id) &&
-        Objects.equals(name, reviewProduct.name) &&
-        Objects.equals(link, reviewProduct.link);
+    SurveyQuestionSummary surveyQuestionSummary = (SurveyQuestionSummary) o;
+    return Objects.equals(positive, surveyQuestionSummary.positive) &&
+        Objects.equals(negative, surveyQuestionSummary.negative) &&
+        Objects.equals(total, surveyQuestionSummary.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, link);
+    return Objects.hash(positive, negative, total);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReviewProduct {\n");
+    sb.append("class SurveyQuestionSummary {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    positive: ").append(toIndentedString(positive)).append("\n");
+    sb.append("    negative: ").append(toIndentedString(negative)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

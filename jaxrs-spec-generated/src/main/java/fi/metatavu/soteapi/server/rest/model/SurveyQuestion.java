@@ -18,14 +18,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 
-public class ReviewProduct   {
+public class SurveyQuestion   {
   private @Valid Long id = null;
   private @Valid String name = null;
-  private @Valid String link = null;
+  private @Valid String question = null;
 
   /**
    **/
-  public ReviewProduct id(Long id) {
+  public SurveyQuestion id(Long id) {
     this.id = id;
     return this;
   }
@@ -43,7 +43,7 @@ public class ReviewProduct   {
 
   /**
    **/
-  public ReviewProduct name(String name) {
+  public SurveyQuestion name(String name) {
     this.name = name;
     return this;
   }
@@ -61,20 +61,20 @@ public class ReviewProduct   {
 
   /**
    **/
-  public ReviewProduct link(String link) {
-    this.link = link;
+  public SurveyQuestion question(String question) {
+    this.question = question;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("link")
+  @JsonProperty("question")
 
-  public String getLink() {
-    return link;
+  public String getQuestion() {
+    return question;
   }
-  public void setLink(String link) {
-    this.link = link;
+  public void setQuestion(String question) {
+    this.question = question;
   }
 
 
@@ -86,25 +86,25 @@ public class ReviewProduct   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReviewProduct reviewProduct = (ReviewProduct) o;
-    return Objects.equals(id, reviewProduct.id) &&
-        Objects.equals(name, reviewProduct.name) &&
-        Objects.equals(link, reviewProduct.link);
+    SurveyQuestion surveyQuestion = (SurveyQuestion) o;
+    return Objects.equals(id, surveyQuestion.id) &&
+        Objects.equals(name, surveyQuestion.name) &&
+        Objects.equals(question, surveyQuestion.question);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, link);
+    return Objects.hash(id, name, question);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReviewProduct {\n");
+    sb.append("class SurveyQuestion {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("}");
     return sb.toString();
   }
