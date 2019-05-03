@@ -917,6 +917,16 @@
             "type" : "integer",
             "format" : "int64"
           }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/ReviewListSort"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1509,11 +1519,10 @@
           }
         }
       },
-      "EmergencyCongestionStatusListSort" : {
+      "ReviewListSort" : {
         "type" : "string",
         "enum" : [ "CREATED_DESC", "CREATED_ASC" ]
-      },
-      "ReviewListSort" : { }
+      }
     }
   }
 }
