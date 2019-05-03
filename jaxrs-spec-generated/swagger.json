@@ -1522,6 +1522,10 @@
       "ReviewListSort" : {
         "type" : "string",
         "enum" : [ "CREATED_DESC", "CREATED_ASC" ]
+      },
+      "EmergencyCongestionStatusListSort" : {
+        "type" : "string",
+        "enum" : [ "CREATED_DESC", "CREATED_ASC" ]
       }
     }
   }
