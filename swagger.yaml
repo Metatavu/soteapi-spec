@@ -590,6 +590,12 @@ paths:
           schema:
             type: integer
             format: int64
+        - name: sort
+          in: query
+          description: Sort
+          required: false
+          schema:
+            $ref: '#/components/schemas/ReviewListSort'
       description: |
         Lists reviews
       tags:
@@ -994,10 +1000,8 @@ components:
           format: int32
         message:
           type: string
-    EmergencyCongestionStatusListSort:
+    ReviewListSort:
       type: string
       enum:
         - CREATED_DESC
         - CREATED_ASC
-    ReviewListSort:
-      {}
