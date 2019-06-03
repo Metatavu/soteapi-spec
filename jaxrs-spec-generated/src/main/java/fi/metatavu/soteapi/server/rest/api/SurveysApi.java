@@ -21,43 +21,59 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
-@Path("/surveyQuestions")
+@Path("/surveys")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-05-03T10:46:09.955+03:00[Europe/Helsinki]")
-public interface SurveyQuestionsApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-06-03T16:07:35.024+03:00[Europe/Helsinki]")
+public interface SurveysApi {
 
     @GET
-    @Path("/{surveyQuestionId}")
+    @Path("/{surveyName}")
     @Produces({ "application/json;charset=utf-8" })
-    @Operation(summary = "Finds surveyQuestion", description = "Finds single surveyQuestion ", tags={ "SurveyQuestions" })
+    @Operation(summary = "Finds survey", description = "Finds single survey ", tags={ "Surveys" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Returns a single surveyQuestion", content = @Content(schema = @Schema(implementation = SurveyQuestion.class))),
+        @ApiResponse(responseCode = "200", description = "Returns a single survey", content = @Content(schema = @Schema(implementation = Survey.class))),
         @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
         @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
         @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
-    Response findSurveyQuestion( @PathParam("surveyQuestionId")
+    Response findSurvey( @PathParam("surveyName")
 
- @Parameter(description = "surveyQuestion id") Long surveyQuestionId
+ @Parameter(description = "survey name") String surveyName
 );
     @GET
-    @Path("/{surveyQuestionId}/summary")
+    @Path("/{surveyName}/questions/{questionNumber}/summary")
     @Produces({ "application/json;charset=utf-8" })
-    @Operation(summary = "Finds survey question summary", description = "Finds single surveyQuestion summary ", tags={ "SurveyQuestions" })
+    @Operation(summary = "Finds survey question summary", description = "Finds single survey question summary ", tags={ "Surveys" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Returns a single surveyQuestion", content = @Content(schema = @Schema(implementation = SurveyQuestionSummary.class))),
+        @ApiResponse(responseCode = "200", description = "Returns a single survey", content = @Content(schema = @Schema(implementation = SurveyQuestionSummary.class))),
         @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
         @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
         @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
-    Response findSurveyQuestionSummary( @PathParam("surveyQuestionId")
+    Response findSurveyQuestionSummary( @PathParam("surveyName")
 
- @Parameter(description = "surveyQuestion id") Long surveyQuestionId
+ @Parameter(description = "survey name") String surveyName
+, @PathParam("questionNumber")
+
+ @Parameter(description = "Question number") Long questionNumber
+);
+    @GET
+    @Path("/{surveyName}/questions")
+    @Produces({ "application/json;charset=utf-8" })
+    @Operation(summary = "lists questions of survey", description = "Lists questions of sigle survey ", tags={ "Surveys" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Returns a single survey", content = @Content(array = @ArraySchema(schema = @Schema(implementation = SurveyQuestion.class)))),
+        @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
+        @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
+    Response listSurveyQuestions( @PathParam("surveyName")
+
+ @Parameter(description = "survey name") String surveyName
 );
     @GET
     @Produces({ "application/json;charset=utf-8" })
-    @Operation(summary = "Lists surveyQuestions", description = "Lists surveyQuestions ", tags={ "SurveyQuestions" })
+    @Operation(summary = "Lists surveys", description = "Lists surveys ", tags={ "Surveys" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Returns a list of surveyQuestions", content = @Content(array = @ArraySchema(schema = @Schema(implementation = SurveyQuestion.class)))),
+        @ApiResponse(responseCode = "200", description = "Returns a list of surveys", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Survey.class)))),
         @ApiResponse(responseCode = "400", description = "Invalid request was sent to the server", content = @Content(schema = @Schema(implementation = BadRequest.class))),
         @ApiResponse(responseCode = "403", description = "Attempted to make a call with unauthorized client", content = @Content(schema = @Schema(implementation = Forbidden.class))),
         @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = InternalServerError.class))) })
-    Response listSurveyQuestions();}
+    Response listSurveys();}

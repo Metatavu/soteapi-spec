@@ -18,44 +18,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 
-public class SurveyQuestion   {
-  private @Valid Long number = null;
-  private @Valid String question = null;
+public class Survey   {
+  private @Valid String name = null;
+  private @Valid List<SurveyQuestion> questions = new ArrayList<>();
 
   /**
    **/
-  public SurveyQuestion number(Long number) {
-    this.number = number;
+  public Survey name(String name) {
+    this.name = name;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("number")
+  @JsonProperty("name")
 
-  public Long getNumber() {
-    return number;
+  public String getName() {
+    return name;
   }
-  public void setNumber(Long number) {
-    this.number = number;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
    **/
-  public SurveyQuestion question(String question) {
-    this.question = question;
+  public Survey questions(List<SurveyQuestion> questions) {
+    this.questions = questions;
     return this;
   }
 
   
   //@ApiModelProperty(value = "")
-  @JsonProperty("question")
+  @JsonProperty("questions")
 
-  public String getQuestion() {
-    return question;
+  public List<SurveyQuestion> getQuestions() {
+    return questions;
   }
-  public void setQuestion(String question) {
-    this.question = question;
+  public void setQuestions(List<SurveyQuestion> questions) {
+    this.questions = questions;
   }
 
 
@@ -67,23 +67,23 @@ public class SurveyQuestion   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SurveyQuestion surveyQuestion = (SurveyQuestion) o;
-    return Objects.equals(number, surveyQuestion.number) &&
-        Objects.equals(question, surveyQuestion.question);
+    Survey survey = (Survey) o;
+    return Objects.equals(name, survey.name) &&
+        Objects.equals(questions, survey.questions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, question);
+    return Objects.hash(name, questions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SurveyQuestion {\n");
+    sb.append("class Survey {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    question: ").append(toIndentedString(question)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    questions: ").append(toIndentedString(questions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

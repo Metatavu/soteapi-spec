@@ -1037,15 +1037,140 @@
         }
       }
     },
-    "/surveyQuestions" : {
+    "/surveys" : {
       "get" : {
-        "tags" : [ "SurveyQuestions" ],
-        "summary" : "Lists surveyQuestions",
-        "description" : "Lists surveyQuestions\n",
-        "operationId" : "listSurveyQuestions",
+        "tags" : [ "Surveys" ],
+        "summary" : "Lists surveys",
+        "description" : "Lists surveys\n",
+        "operationId" : "listSurveys",
         "responses" : {
           "200" : {
-            "description" : "Returns a list of surveyQuestions",
+            "description" : "Returns a list of surveys",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Survey"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadRequest"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InternalServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/surveys/{surveyName}" : {
+      "get" : {
+        "tags" : [ "Surveys" ],
+        "summary" : "Finds survey",
+        "description" : "Finds single survey\n",
+        "operationId" : "findSurvey",
+        "parameters" : [ {
+          "name" : "surveyName",
+          "in" : "path",
+          "description" : "survey name",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single survey",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Survey"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadRequest"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json;charset=utf-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InternalServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/surveys/{surveyName}/questions" : {
+      "get" : {
+        "tags" : [ "Surveys" ],
+        "summary" : "lists questions of survey",
+        "description" : "Lists questions of sigle survey\n",
+        "operationId" : "listSurveyQuestions",
+        "parameters" : [ {
+          "name" : "surveyName",
+          "in" : "path",
+          "description" : "survey name",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single survey",
             "content" : {
               "application/json;charset=utf-8" : {
                 "schema" : {
@@ -1090,78 +1215,26 @@
         }
       }
     },
-    "/surveyQuestions/{surveyQuestionId}" : {
+    "/surveys/{surveyName}/questions/{questionNumber}/summary" : {
       "get" : {
-        "tags" : [ "SurveyQuestions" ],
-        "summary" : "Finds surveyQuestion",
-        "description" : "Finds single surveyQuestion\n",
-        "operationId" : "findSurveyQuestion",
-        "parameters" : [ {
-          "name" : "surveyQuestionId",
-          "in" : "path",
-          "description" : "surveyQuestion id",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "integer",
-            "format" : "int64"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Returns a single surveyQuestion",
-            "content" : {
-              "application/json;charset=utf-8" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SurveyQuestion"
-                }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Invalid request was sent to the server",
-            "content" : {
-              "application/json;charset=utf-8" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/BadRequest"
-                }
-              }
-            }
-          },
-          "403" : {
-            "description" : "Attempted to make a call with unauthorized client",
-            "content" : {
-              "application/json;charset=utf-8" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Forbidden"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal server error",
-            "content" : {
-              "application/json;charset=utf-8" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/InternalServerError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/surveyQuestions/{surveyQuestionId}/summary" : {
-      "get" : {
-        "tags" : [ "SurveyQuestions" ],
+        "tags" : [ "Surveys" ],
         "summary" : "Finds survey question summary",
-        "description" : "Finds single surveyQuestion summary\n",
+        "description" : "Finds single survey question summary\n",
         "operationId" : "findSurveyQuestionSummary",
         "parameters" : [ {
-          "name" : "surveyQuestionId",
+          "name" : "surveyName",
           "in" : "path",
-          "description" : "surveyQuestion id",
+          "description" : "survey name",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "questionNumber",
+          "in" : "path",
+          "description" : "Question number",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -1172,7 +1245,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Returns a single surveyQuestion",
+            "description" : "Returns a single survey",
             "content" : {
               "application/json;charset=utf-8" : {
                 "schema" : {
@@ -1389,15 +1462,25 @@
       },
       "SurveyQuestion" : {
         "properties" : {
-          "id" : {
+          "number" : {
             "type" : "integer",
             "format" : "int64"
           },
+          "question" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Survey" : {
+        "properties" : {
           "name" : {
             "type" : "string"
           },
-          "question" : {
-            "type" : "string"
+          "questions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SurveyQuestion"
+            }
           }
         }
       },

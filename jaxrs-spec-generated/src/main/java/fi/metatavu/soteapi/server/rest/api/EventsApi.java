@@ -23,7 +23,7 @@ import javax.validation.Valid;
 
 @Path("/events")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-05-03T10:46:09.955+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-06-03T16:07:35.024+03:00[Europe/Helsinki]")
 public interface EventsApi {
 
     @GET
