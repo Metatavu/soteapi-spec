@@ -668,17 +668,99 @@ paths:
             application/json;charset=utf-8:
               schema:
                 $ref: "#/components/schemas/InternalServerError"
-  /surveyQuestions:
+  /surveys:
     get:
-      operationId: listSurveyQuestions
-      summary: Lists surveyQuestions
+      operationId: listSurveys
+      summary: Lists surveys
       description: |
-        Lists surveyQuestions
+        Lists surveys
       tags:
-        - SurveyQuestions
+        - Surveys
       responses:
         "200":
-          description: Returns a list of surveyQuestions
+          description: Returns a list of surveys
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Survey"
+        "400":
+          description: Invalid request was sent to the server
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/BadRequest"
+        "403":
+          description: Attempted to make a call with unauthorized client
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Forbidden"
+        "500":
+          description: Internal server error
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+  "/surveys/{surveyName}":
+    get:
+      operationId: findSurvey
+      summary: Finds survey
+      description: |
+        Finds single survey
+      parameters:
+        - name: surveyName
+          in: path
+          description: survey name
+          required: true
+          schema:
+            type: string 
+      tags:
+        - Surveys
+      responses:
+        "200":
+          description: Returns a single survey
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Survey"
+        "400":
+          description: Invalid request was sent to the server
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/BadRequest"
+        "403":
+          description: Attempted to make a call with unauthorized client
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/Forbidden"
+        "500":
+          description: Internal server error
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+  "/surveys/{surveyName}/questions":
+    get:
+      operationId: listSurveyQuestions
+      summary: lists questions of survey
+      description: |
+        Lists questions of sigle survey
+      parameters:
+        - name: surveyName
+          in: path
+          description: survey name
+          required: true
+          schema:
+            type: string 
+      tags:
+        - Surveys
+      responses:
+        "200":
+          description: Returns a single survey
           content:
             application/json;charset=utf-8:
               schema:
@@ -703,66 +785,31 @@ paths:
             application/json;charset=utf-8:
               schema:
                 $ref: "#/components/schemas/InternalServerError"
-  "/surveyQuestions/{surveyQuestionId}":
-    get:
-      operationId: findSurveyQuestion
-      summary: Finds surveyQuestion
-      description: |
-        Finds single surveyQuestion
-      parameters:
-        - name: surveyQuestionId
-          in: path
-          description: surveyQuestion id
-          required: true
-          schema:
-            type: integer
-            format: int64
-      tags:
-        - SurveyQuestions
-      responses:
-        "200":
-          description: Returns a single surveyQuestion
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/SurveyQuestion"
-        "400":
-          description: Invalid request was sent to the server
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/BadRequest"
-        "403":
-          description: Attempted to make a call with unauthorized client
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/Forbidden"
-        "500":
-          description: Internal server error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/InternalServerError"
-  "/surveyQuestions/{surveyQuestionId}/summary":
+  "/surveys/{surveyName}/questions/{questionNumber}/summary":
     get:
       operationId: findSurveyQuestionSummary
       summary: Finds survey question summary
       description: |
-        Finds single surveyQuestion summary
+        Finds single survey question summary
       parameters:
-        - name: surveyQuestionId
+        - name: surveyName
           in: path
-          description: surveyQuestion id
+          description: survey name
+          required: true
+          schema:
+            type: string
+        - name: questionNumber
+          in: path
+          description: Question number
           required: true
           schema:
             type: integer
             format: int64
       tags:
-        - SurveyQuestions
+        - Surveys
       responses:
         "200":
-          description: Returns a single surveyQuestion
+          description: Returns a single survey
           content:
             application/json;charset=utf-8:
               schema:
@@ -914,13 +961,19 @@ components:
           type: string
     SurveyQuestion:
       properties:
-        id:
+        number:
           type: integer
           format: int64
-        name:
-          type: string
         question:
           type: string
+    Survey:
+      properties:
+        name:
+          type: string
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/SurveyQuestion"
     SurveyQuestionSummary:
       properties:
         positive:
