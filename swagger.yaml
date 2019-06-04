@@ -1011,6 +1011,8 @@ components:
           format: int64
         name:
           type: string
+        displayName:
+          type: string
         link:
           type: string
     InternalServerError:
