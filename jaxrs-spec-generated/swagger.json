@@ -1537,6 +1537,9 @@
           "name" : {
             "type" : "string"
           },
+          "displayName" : {
+            "type" : "string"
+          },
           "link" : {
             "type" : "string"
           }

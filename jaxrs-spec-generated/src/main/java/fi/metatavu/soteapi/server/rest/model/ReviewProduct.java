@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public class ReviewProduct   {
   private @Valid Long id = null;
   private @Valid String name = null;
+  private @Valid String displayName = null;
   private @Valid String link = null;
 
   /**
@@ -61,6 +62,24 @@ public class ReviewProduct   {
 
   /**
    **/
+  public ReviewProduct displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  
+  //@ApiModelProperty(value = "")
+  @JsonProperty("displayName")
+
+  public String getDisplayName() {
+    return displayName;
+  }
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  /**
+   **/
   public ReviewProduct link(String link) {
     this.link = link;
     return this;
@@ -89,12 +108,13 @@ public class ReviewProduct   {
     ReviewProduct reviewProduct = (ReviewProduct) o;
     return Objects.equals(id, reviewProduct.id) &&
         Objects.equals(name, reviewProduct.name) &&
+        Objects.equals(displayName, reviewProduct.displayName) &&
         Objects.equals(link, reviewProduct.link);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, link);
+    return Objects.hash(id, name, displayName, link);
   }
 
   @Override
@@ -104,6 +124,7 @@ public class ReviewProduct   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
