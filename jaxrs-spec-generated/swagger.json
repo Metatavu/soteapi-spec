@@ -896,6 +896,17 @@
             "format" : "int32"
           }
         }, {
+          "name" : "minReviewLength",
+          "in" : "query",
+          "description" : "displays only reviews containing at least given amount of characters",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",

@@ -23,7 +23,7 @@ import javax.validation.Valid;
 
 @Path("/reviews")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-06-04T13:27:47.578+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-08-28T07:11:31.821+03:00[Europe/Helsinki]")
 public interface ReviewsApi {
 
     @GET
@@ -56,6 +56,9 @@ public interface ReviewsApi {
 ,  @QueryParam("maxRating") 
 
  @Parameter(description = "max rating")  Integer maxRating
+,  @QueryParam("minReviewLength") 
+
+ @Parameter(description = "displays only reviews containing at least given amount of characters")  Integer minReviewLength
 ,  @QueryParam("firstResult") 
 
  @Parameter(description = "First result")  Long firstResult

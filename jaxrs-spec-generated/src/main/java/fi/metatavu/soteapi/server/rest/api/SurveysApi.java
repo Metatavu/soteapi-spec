@@ -23,7 +23,7 @@ import javax.validation.Valid;
 
 @Path("/surveys")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-06-04T13:27:47.578+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJAXRSSpecServerCodegen", date = "2019-08-28T07:11:31.821+03:00[Europe/Helsinki]")
 public interface SurveysApi {
 
     @GET
